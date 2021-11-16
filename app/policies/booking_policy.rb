@@ -1,7 +1,11 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      if user.artist
+        scope.joins(:service).where({services: {user: user}})
+      else
+        scope.where(user: user)
+      end
     end
   end
 
