@@ -1,10 +1,12 @@
 class ServicesController < ApplicationController
   def index
-    @services = Service.all
+    @services = policy_scope(Service)
+    authorize @services
   end
 
   def show
     @service = Service.find(params[:id])
+    authorize @service
   end
 
   def new
