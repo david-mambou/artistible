@@ -12,9 +12,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(sanitized_params)
     @booking.user = current_user
-    @services = Service.all
     authorize @booking
-    raise
     if @booking.save
       flash[:notice] = "New booking added"
       redirect_to root_path
