@@ -16,4 +16,18 @@ class BookingPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def accept?
+    the_artist?
+  end
+
+  def decline?
+    the_artist?
+  end
+
+  private
+
+  def the_artist?
+    record.service.user == user
+  end
 end

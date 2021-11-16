@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    authorize @bookings
   end
 
   def new
@@ -47,7 +48,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params_id)
     authorize @booking
   end
-  
+
   def sanitized_params
     params.require("booking").permit(:start_time, :end_time, :service_id)
   end
