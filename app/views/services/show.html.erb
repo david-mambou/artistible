@@ -3,5 +3,22 @@
   <b>Description:</b> <%= @service.description %><br>
   <b>Category:</b> <%= @service.category %><br>
   <b>service by:</b> <%= @service.user.name %><br>
+  
+  
+  <% if @service.photos.attached?  %>
+      <% if @service.photos.attached? %>
+        <% @service.photos.each do |photo| %>
+          <%= image_tag(photo, :width => 150) %>
+        <% end %>
+      <% else %>
+        no photos
+      <% end %>
+  <% else %>
+      <%= image_tag(photo, :width => 200) %>
+  <% end %>
+  <br>
+  
+
+  
   <%# TODO: Link to make a booking when controller is made %>
   <%= link_to 'Make a Booking'%>

@@ -9,6 +9,14 @@
     <b>Description:</b> <%= service.description %><br>
     <b>Category:</b> <%= service.category %><br>
     <b>service by:</b> <%= service.user.name %><br>
-    <%= link_to 'View Details', service_path(service), class: 'btn btn-primary'  %>
+    <% if service.photos.attached? %>
+      <b>Photos:</b> 
+      <% service.photos.each do |photo| %>
+        <%= image_tag(photo, :width => 100) %>
+      <% end %>
+    <% else %>
+      no photos
+    <% end %>
+    <br><%= link_to 'View Details', service_path(service), class: 'btn btn-primary'  %>
 <% end %>
 
