@@ -30,6 +30,6 @@ class ServicesController < ApplicationController
   private
 
   def sanitized_params
-    params.require("service").permit(:price, :title, :description, :category)
+    params.require("service").permit(:price, :title, :description, :category, photos: [])
   end
 end
