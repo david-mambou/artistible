@@ -1,5 +1,9 @@
 <div class="card-hello">
-  <%= image_tag(service.photos.first, class: 'art-img') %>
+  <% if service.photos.attached? %>
+    <%= image_tag(service.photos.first, class: 'art-img') %>
+  <% else %>
+    <%# TODO: placeholder goes here %>
+  <% end %>
   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class='avatar-bordered'/>
   <div class="card-hello-info">
     <h3><%= service.title %></h3>
