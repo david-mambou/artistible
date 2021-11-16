@@ -1,0 +1,14 @@
+
+<h1>Services</h1>
+
+<% @services.each do |service| %>
+  <%# TODO: Add card style after UI Components are finished %>
+    <hr>
+    <b>Title:</b> <%= service.title %><br>
+    <b>Price:</b> <%= service.price %><br>
+    <b>Description:</b> <%= service.description %><br>
+    <b>Category:</b> <%= service.category %><br>
+    <b>service by:</b> <%= service.user.name %><br>
+    <%= link_to 'View Details', service_path(service), class: 'btn btn-primary'  %>
+<% end %>
+
