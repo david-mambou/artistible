@@ -1,13 +1,14 @@
 class ServicesController < ApplicationController
   def new
+    p current_user
     @service = Service.new
-    # authorize @service
+    authorize @service
   end
 
   def create
     @service = Service.new(sanitized_params)
     @service.user = current_user
-    # authorize @service
+    authorize @service
     if @service.save
       flash[:notice] = "New service added"
       redirect_to root_path
