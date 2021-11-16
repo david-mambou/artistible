@@ -6,30 +6,27 @@
 
 <% @bookings.each do |booking| %>
   <%# TODO: Add card style after UI Components are finished %>
-    <hr>
-    <b>Title:</b> <%= booking.status %><br>
-    <b>Start:</b> <%= booking.start_time %><br>
-    <b>End:</b> <%= booking.end_time %><br>
+  <hr>
+  <b>Title:</b> <%= booking.service.title %><br>
+  <b>Status:</b> <%= booking.status %><br>
+  <b>Start:</b> <%= booking.start_time %><br>
+  <b>End:</b> <%= booking.end_time %><br>
+  <% if current_user.artist %>
+    <b>Customer:</b> <%= booking.user.email %><br>
+  <% else %>
+    <b>Provider:</b> <%= booking.service.user.email %><br>
+  <% end %>
 
-  <% @bookings.each do |booking| %>
-    <%# TODO: Add card style after UI Components are finished %>
-      <hr>
-      <b>Title:</b> <%= booking.service.title %><br>
-      <b>Status:</b> <%= booking.status %><br>
-      <b>Start:</b> <%= booking.start_time %><br>
-      <b>End:</b> <%= booking.end_time %><br>
-      <% if current_user.artist %>
-        <b>Customer:</b> <%= booking.user.email %><br>
-      <% else %>
-        <b>Provider:</b> <%= booking.service.user.email %><br>
-      <% end %>
-
-    <% if current_user.artist? %>
-
-      <% case booking.status %>
-      <% when pending %>
-        <%= link_to 'Accept booking', accept_booking_path, method: :patch  %>
-        <%= link_to 'Decline booking', decline_booking_path, method: :patch  %>
-      <% end %>
+  <% if current_user.artist? %>
+    <%# <% The CSS is not definitive at all %>
+    <% case booking.status %>
+    <% when 'pending' %>
+      <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+      <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+    <% when 'accepted' %>
+      <%= link_to 'Cancel booking', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
+    <% when 'declined' %>
+      <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
     <% end %>
   <% end %>
+<% end %>

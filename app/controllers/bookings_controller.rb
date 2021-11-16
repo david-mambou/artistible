@@ -34,18 +34,20 @@ class BookingsController < ApplicationController
   # the artist can accept or decline
   def accept
     @booking.status = 1
-    # redirect_to bookings_path ?
+    @booking.save
+    redirect_to bookings_path
   end
 
   def decline
     @booking.status = 2
-    # redirect_to bookings_path ?
+    @booking.save
+    redirect_to bookings_path
   end
 
   private
 
   def set_booking
-    @booking = Booking.find(params_id)
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
