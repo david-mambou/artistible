@@ -1,33 +1,19 @@
-<div class="jumbotron py-6 ">
+<div class="jumbotron">
   <div class="container">
-    <h1 class="display-4">Find an Artist Near You</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <h1 class="display-4">Find an Artist Near You</h1>    <p>Change your life and learn to code at one of our campuses around the world.</p>
     <%= link_to "Browse Artists", root_path, class: "main-button" %>
-    <%# <button class="main-button" role="button">Browse Artists</button> %>
   </div>
 </div>
 
+
 <div class="container">
-<div class="row">
-  <div class="col-4">
-    <%= render 'shared/card.html.erb' %>
+  <div class="row">
+    <div class="cards">
+      <div class="card-hello">
+          <%= render 'shared/card.html.erb'%>
+        <div class="card-hello-info">
+        </div>
+      </div>
+    </div>
   </div>
-   <div class="col-4">
-    <%= render 'shared/card.html.erb' %>
-  </div>
-   <div class="col-4">
-    <%= render 'shared/card.html.erb' %>
-  </div>
- <div class="col-4">
-    <%= render 'shared/card.html.erb' %>
-  </div>
-   <div class="col-4">
-    <%= render 'shared/card.html.erb' %>
-  </div>
-   <div class="col-4">
-    <%= render 'shared/card.html.erb' %>
-  </div>
-</div>
 </div>
