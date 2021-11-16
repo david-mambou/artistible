@@ -1,0 +1,7 @@
+  <b>Title:</b> <%= @service.title %><br>
+  <b>Price:</b> <%= @service.price %><br>
+  <b>Description:</b> <%= @service.description %><br>
+  <b>Category:</b> <%= @service.category %><br>
+  <b>service by:</b> <%= @service.user.name %><br>
+  <%# TODO: Link to make a booking when controller is made %>
+  <%= link_to 'Make a Booking'%>
