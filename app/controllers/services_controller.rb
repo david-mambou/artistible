@@ -10,7 +10,6 @@ class ServicesController < ApplicationController
   end
 
   def new
-    p current_user
     @service = Service.new
     authorize @service
   end
