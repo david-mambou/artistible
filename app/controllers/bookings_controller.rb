@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[accept decline]
+
   def index
     @bookings = policy_scope(Booking)
   end
@@ -21,10 +23,31 @@ class BookingsController < ApplicationController
     end
   end
 
+  # the customer can edit
   def edit
   end
 
   def update
+  end
+
+  # the artist can accept or decline
+  def accept
+    @booking.status = 1
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def decline
+    @booking.status = 2
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def sanitized_params
