@@ -1,2 +1,13 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :start_time %>
+        <%= f.input :end_time %>
+        <%= f.association :service %>
+        <%# <%= f.input :photo, as: :file, label: Upload samples of your artwork %>
+        <%= f.submit class: "btn btn-dark mg-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>
