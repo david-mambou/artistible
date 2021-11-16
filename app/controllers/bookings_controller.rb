@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[accept decline]
+  before_action :set_booking, only: %i[edit update accept decline]
 
   def index
     @bookings = policy_scope(Booking)
@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    # TODO: Prefill service (needs to be passed from the services show)
     authorize @booking
   end
 
@@ -16,7 +17,7 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save
       flash[:notice] = "New booking added"
-      redirect_to bookings_path
+      redirect_to bookings_path(current_user)
     else
       flash.now[:error] = 'Try again'
       render :new
@@ -28,6 +29,13 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if @booking.update(sanitized_params)
+      @booking.status = 'pending'
+      @booking.save
+      redirect_to bookings_path(current_user)
+    else
+      render :edit
+    end
   end
 
   # the artist can accept or decline

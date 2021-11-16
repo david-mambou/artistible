@@ -3,7 +3,7 @@
   <b>Description:</b> <%= @service.description %><br>
   <b>Category:</b> <%= @service.category %><br>
   <b>service by:</b> <%= @service.user.name %><br>
-  
+
    <% if @service.photos.attached? %>
     <% @service.photos.each do |photo| %>
       <%= image_tag(photo, :width => 150) %>
@@ -12,6 +12,6 @@
     no photos
   <% end %>
   <br>
-  
+
   <%# TODO: Link to make a booking when controller is made %>
-  <%= link_to 'Make a Booking'%>
+  <%= link_to 'Make a Booking', new_booking_path(current_user), class: "btn btn-primary" %>
