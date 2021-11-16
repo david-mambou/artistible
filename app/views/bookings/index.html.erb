@@ -6,5 +6,12 @@
     <b>Title:</b> <%= booking.status %><br>
     <b>Start:</b> <%= booking.start_time %><br>
     <b>End:</b> <%= booking.end_time %><br>
+    <% if current_user.artist? %>
+      <% case booking.status %>
+      <% when pending %>
+        <%= link_to 'Accept booking', accept_booking_path, method: :patch  %>
+        <%= link_to 'Decline booking', decline_booking_path, method: :patch  %>
+      <% end %>
+    <% end %>
 
 <% end %>
