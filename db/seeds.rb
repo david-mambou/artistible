@@ -18,7 +18,7 @@ p 'generating fake users'
   email = Faker::Internet.email(name: name)
   User.create(name: name,
               email: email,
-              password: Faker::Internet.password(min_length: 6),
+              password: 'password',
               artist: [true, false].sample,
               bio: Faker::Lorem.sentence)
 end
