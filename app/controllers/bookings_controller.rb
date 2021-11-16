@@ -30,6 +30,8 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(sanitized_params)
+      @booking.status = 'pending'
+      @booking.save
       redirect_to bookings_path(current_user)
     else
       render :edit
