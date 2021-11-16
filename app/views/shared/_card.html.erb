@@ -1,10 +1,15 @@
 <div class="card-hello">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="art-img"/>
+  <% if service.photos.attached? %>
+    <%= image_tag(service.photos.first, class: 'art-img') %>
+  <% else %>
+    <%# TODO: placeholder goes here %>
+  <% end %>
   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class='avatar-bordered'/>
   <div class="card-hello-info">
-    <h3>Title here</h3>
-    <p>Short description here!</p>
-    <p><i class="yen fas fa-yen-sign">Price</i></p>
+    <h3><%= service.title %></h3>
+    <p><%= service.description %></p>
+    <p><i class="yen fas fa-yen-sign"><%= service.price %></i></p>
     <p><i class="star fas fa-star">Rating</i></p>
   </div>
+  <%= link_to service_path(service), class: 'card-hello-link-wrapper' do %><% end %>
 </div>

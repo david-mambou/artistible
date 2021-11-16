@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save
       flash[:notice] = "New booking added"
-      redirect_to bookings_path(current_user)
+      redirect_to bookings_path
     else
       flash.now[:error] = 'Try again'
       render :new
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
     if @booking.update(sanitized_params)
       @booking.status = 'pending'
       @booking.save
-      redirect_to bookings_path(current_user)
+      redirect_to bookings_path
     else
       render :edit
     end
