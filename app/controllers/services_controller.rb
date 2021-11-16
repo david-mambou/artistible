@@ -1,7 +1,6 @@
 class ServicesController < ApplicationController
   def index
     @services = policy_scope(Service)
-    authorize @services
   end
 
   def show

@@ -1,12 +1,3 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= simple_form_for @booking do |f| %>
-        <%= f.input :start_time %>
-        <%= f.input :end_time %>
-        <%= f.association :service %>
-        <%= f.submit class: "btn btn-dark mg-2" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<h2 class="text-center p-4">New booking</h2>
+
+<%= render 'bookings/form' %>
