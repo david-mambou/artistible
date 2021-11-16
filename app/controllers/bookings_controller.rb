@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[accept decline]
+  before_action :set_booking, only: %i[edit update accept decline]
 
   def index
     @bookings = policy_scope(Booking)
@@ -28,6 +28,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if @booking.update(sanitized_params)
+      redirect_to bookings_path
+    else
+      render :edit
+    end
   end
 
   # the artist can accept or decline
