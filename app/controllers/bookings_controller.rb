@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save
       flash[:notice] = "New booking added"
-      redirect_to root_path
+      redirect_to bookings_path
     else
       flash.now[:error] = 'Try again'
       render :new

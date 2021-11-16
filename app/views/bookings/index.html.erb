@@ -1,4 +1,8 @@
-<h1>Bookings</h1>
+<% if current_user.artist %>
+  <h1>Your bookings as an artist </h1>
+<% else %>
+  <h1>Your bookings as a customer </h1>
+<% end %>
 
 <% @bookings.each do |booking| %>
   <%# TODO: Add card style after UI Components are finished %>
@@ -6,12 +10,26 @@
     <b>Title:</b> <%= booking.status %><br>
     <b>Start:</b> <%= booking.start_time %><br>
     <b>End:</b> <%= booking.end_time %><br>
+
+  <% @bookings.each do |booking| %>
+    <%# TODO: Add card style after UI Components are finished %>
+      <hr>
+      <b>Title:</b> <%= booking.service.title %><br>
+      <b>Status:</b> <%= booking.status %><br>
+      <b>Start:</b> <%= booking.start_time %><br>
+      <b>End:</b> <%= booking.end_time %><br>
+      <% if current_user.artist %>
+        <b>Customer:</b> <%= booking.user.email %><br>
+      <% else %>
+        <b>Provider:</b> <%= booking.service.user.email %><br>
+      <% end %>
+
     <% if current_user.artist? %>
+
       <% case booking.status %>
       <% when pending %>
         <%= link_to 'Accept booking', accept_booking_path, method: :patch  %>
         <%= link_to 'Decline booking', decline_booking_path, method: :patch  %>
       <% end %>
     <% end %>
-
-<% end %>
+  <% end %>

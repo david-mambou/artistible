@@ -1,10 +1,36 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-4">Find an Artist Near You</h1>    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <%= link_to "Browse Artists", root_path, class: "main-button" %>
+<div class="banner-container">
+  <div class="jumbotron" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'background1.jpg'%>);">
+    <div class="container">
+      <h1 class="display-4">Find an Artist Near You</h1>
+      <p>Change your life and learn to code at one of our campuses around the world.</p>
+    </div>
   </div>
 </div>
 
-<div>
-  <%= render 'shared/card.html.erb'%>
+
+<div class="container d-flex mb-4">
+  <%= link_to "Category 1", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Category 2", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Category 3", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Category 4", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Category 5", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Category 6", root_path, class: "mx-2 main-button" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 mb-4">
+        <%= render 'shared/card.html.erb'%>
+    </div>
+    <div class="col-4 mb-4">
+        <%= render 'shared/card.html.erb'%>
+    </div>
+    <div class="col-4 mb-4">
+        <%= render 'shared/card.html.erb'%>
+    </div>
+    <div class="col-4 mb-4">
+        <%= render 'shared/card.html.erb'%>
+        <%#= cards needs iteration /\  %>
+    </div>
+  </div>
 </div>
