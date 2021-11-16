@@ -20,7 +20,6 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  text-decoration: none;
 }
 
 .main-button:after {
@@ -49,6 +48,8 @@
 
 .main-button:hover {
   outline: 0;
+  color: #66101f;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
