@@ -8,4 +8,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[index show update new create]
   end
   resources :services, only: %i[index show new create]
+
+  patch 'bookings/:id/accepted', to: 'bookings#accept'
+  patch 'bookings/:id/declined', to: 'bookings#decline'
 end
