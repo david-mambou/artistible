@@ -1,21 +1,26 @@
+<div class="banner-container">
+  <div class="jumbotron" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'wall-background.jpg'%>);">
+    <div class="container">
+      <h1 class="display-4">Local Artists for Something Unique</h1>
+      <p>Hire a creative artist near you for a unique, one of a kind service</p>
+    </div>
+  </div>
+</div>
 
-<h1>Services</h1>
+<div class="container d-flex pt-3 pb-5 align-items-center justify-content-between">
+  <%= link_to "Murals", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Paintings", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Interior", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Illustrations", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Signwriting", root_path, class: "mx-2 main-button" %>
+</div>
 
-<% @services.each do |service| %>
-  <%# TODO: Add card style after UI Components are finished %>
-    <hr>
-    <b>Title:</b> <%= service.title %><br>
-    <b>Price:</b> <%= service.price %><br>
-    <b>Description:</b> <%= service.description %><br>
-    <b>Category:</b> <%= service.category %><br>
-    <b>service by:</b> <%= service.user.name %><br>
-    <% if service.photos.attached? %>
-      <b>Photos:</b> 
-      <% service.photos.each do |photo| %>
-        <%= image_tag(photo, :width => 100) %>
-      <% end %>
-    <% else %>
-      no photos
+<div class="container">
+  <div class="row">
+    <% @services.each do |service| %>
+      <div class="col-sm-6 col-lg-4 mb-4">
+          <%= render 'shared/card.html.erb', service: service  %>
+      </div>
     <% end %>
-    <br><%= link_to 'View Details', service_path(service), class: 'btn btn-primary'  %>
-<% end %>
+  </div>
+</div>
