@@ -7,13 +7,17 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @service = Service.find(params[:service_id])
     # TODO: Prefill service (needs to be passed from the services show)
     authorize @booking
   end
 
   def create
+    @service = Service.find(params[:service_id])
     @booking = Booking.new(sanitized_params)
     @booking.user = current_user
+    @booking.service = @service
+    @booking.status = 0
     authorize @booking
     if @booking.save
       flash[:notice] = "New booking added"

@@ -4,6 +4,6 @@ class Service < ApplicationRecord
   has_many_attached :photos
   has_many :reviews, through: :bookings
 
-  CATEGORIES = ['murals', 'paintings', 'interior', 'illustrations', 'signwriting']
+  CATEGORIES = ['murals', 'paintings', 'interior', 'illustrations', 'signwriting'].freeze
   validates :category, inclusion: { in: CATEGORIES }
 end
