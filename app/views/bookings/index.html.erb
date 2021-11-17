@@ -7,9 +7,24 @@
 <% end %>
 </div>
 
-<div class="cards-wrapper">
+<div class="container">
+<div class="row">
   <% if current_user.bookings.present? %>
     <% @bookings.each do |booking| %>
+      <div class="col-sm-4">
+        <% if current_user.artist? %>
+          <%# <% The CSS is not definitive at all %>
+          <% case booking.status %>
+          <% when 'pending' %>
+            <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+            <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+          <% when 'accepted' %>
+            <%= link_to 'Cancel booking', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
+          <% when 'declined' %>
+            <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
+     
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
 
@@ -32,27 +47,27 @@
             <% end %>
           </div> <!--productinfo-->
         </div> <!--card-bookings-->
-          <% elsif booking.status == 'accepted' %>
+        <% elsif booking.status == 'accepted' %>
           <div class="card-bookings m-3">
-          <h2>Confirmed</h2>
+            <h2>Confirmed</h2>
             <%= image_tag booking.service.photos.first %>
             <%# ? image_path(booking.service.photo.first) : image_path(booking.service.photo_url) %>
             <div class="card-hello-info">
-              <h2><%= booking.service.name.capitalize %></h2>
+              <h2><%= booking.service.title.capitalize %></h2>
               <p><%= booking.service.description.capitalize %></p>
-              <p><%= booking.service.size %></p>
               <p><%= booking.service.price %></p>
-              <p><%= booking.start %></p>
-              <p><%= booking.end %></p>
+
             </div>
           </div>
         <% else %>
         <div class="container d-flex justify-content-center p-2">
-          <h2>You haven't booked any artist!</h2>
+          <%# <h2>You haven't booked any artist!</h2> %>
         </div>
       <% end %>
+       </div>
     <% end %>
   <% end %>
+</div> <!--cardswrapper-->
 </div> <!--cardswrapper-->
 
 
