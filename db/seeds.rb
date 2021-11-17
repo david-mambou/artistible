@@ -27,10 +27,10 @@ p 'populating artists with fake content'
 User.where(artist: true).each do |user|
   2.times do
     new_service = Service.create(user: user,
-                   price: rand(2000..20_000),
-                   title: Faker::Ancient.hero,
-                   description: Faker::Lorem.sentence,
-                   category: Service::CATEGORIES.sample)
+                                 price: 100 * rand(20..200),
+                                 title: Faker::Ancient.hero,
+                                 description: Faker::Lorem.sentence,
+                                 category: Service::CATEGORIES.sample)
 
     file = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
     file2 = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
