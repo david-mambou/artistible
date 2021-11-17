@@ -1,3 +1,19 @@
 <h2 class="text-center p-4">Edit booking</h2>
 
-<%= render 'bookings/form' %>
+<% collection = Service.where(user: @booking.service.user).order(:title) if @booking.service%>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+            <%= simple_form_for @booking do |f| %>
+            <%= f.input :start_time, :minute_step => 30, discard_year: true %>
+            <%= f.input :end_time, :minute_step => 30, discard_year: true %>
+
+            <div class="row justify-content-between px-3">
+            <%= f.submit class: "btn btn-dark" %>
+            <%= link_to 'Cancel', services_path, class: "btn btn-warning" %>
+            </div>
+          <% end %>
+    </div>
+  </div>
+</div>
+

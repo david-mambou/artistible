@@ -28,13 +28,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  # the customer can edit
   def edit
   end
 
   def update
     if @booking.update(sanitized_params)
-      @booking.status = 'pending'
+      @booking.status = 0
       @booking.save
       redirect_to bookings_path
     else
