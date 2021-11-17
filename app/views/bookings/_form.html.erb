@@ -2,18 +2,17 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-      <%= simple_form_for @booking do |f| %>
-        <%= f.input :start_time, :minute_step => 30, discard_year: true %>
-        <%= f.input :end_time, :minute_step => 30, discard_year: true %>
-        <% if collection %>
-          <%= f.association :service, collection: collection %>
-        <% else %>
-          <%= f.association :service %>
-        <% end %>
-        <div class="row justify-content-between px-3">
-        <%= f.submit class: "btn btn-dark" %>
-        <%= link_to 'Cancel', services_path, class: "btn btn-warning" %>
-        </div>
+    <% if service.present? %>
+        <%= service.title %>
+          <%= simple_form_for [service, @booking] do |f| %>
+            <%= f.input :start_time, :minute_step => 30, discard_year: true %>
+            <%= f.input :end_time, :minute_step => 30, discard_year: true %>
+
+            <div class="row justify-content-between px-3">
+            <%= f.submit class: "btn btn-dark" %>
+            <%= link_to 'Cancel', services_path, class: "btn btn-warning" %>
+            </div>
+          <% end %>
       <% end %>
     </div>
   </div>
