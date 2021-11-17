@@ -4,12 +4,11 @@
   <% else %>
     <%# TODO: placeholder goes here %>
   <% end %>
-  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class='avatar-bordered'/>
   <div class="card-hello-info">
-    <h3><%= service.title %></h3>
-    <p><%= service.description %></p>
-    <p><i class="yen fas fa-yen-sign"><%= service.price %></i></p>
-    <p><i class="star fas fa-star">Rating</i></p>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class='service-avatar-bordered'/>
+    <h3 class="service-title"><%= service.title %></h3>
+    <p class="card-price"><i class="yen fas fa-yen-sign"><%= service.price %></i></p>
+    <p class="card-rating"><i class="star fas fa-star">Rating</i></p>
   </div>
   <%= link_to service_path(service), class: 'card-hello-link-wrapper' do %><% end %>
 </div>
