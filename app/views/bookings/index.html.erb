@@ -11,7 +11,9 @@
           <div class="container">
             <h2>Booking Pending</h2>
             <div class="card-product mb-3">
-              <%= image_tag booking.service.photos.first %>
+              <% if booking.service.photos.attached? %>
+               <%= image_tag booking.service.photos.first %>
+               <% end %>
               <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
               <div class="card-product-infos">
               <%# TODO: Add card style after UI Components are finished %>
