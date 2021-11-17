@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def sanitizen_params
+  def sanitized_params
     params.require(:review).permit(:rating, :comment)
   end
 end
