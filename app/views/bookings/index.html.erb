@@ -10,7 +10,7 @@
     <% @bookings.each do |booking| %>
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
-        <h2>Booking Pending <%= link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %></h2>
+        <h2>Booking Pending <%= link_to 'Modify booking', edit_booking_path(booking), class: "main-button" %></h2>
           <%= image_tag booking.service.photos.first %>
           <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
           <div class="card-hello-info">
