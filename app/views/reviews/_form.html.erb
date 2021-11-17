@@ -1,0 +1,7 @@
+<p><%= @review.service.title %> by <%= @review.service.user.name %></p>
+
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>

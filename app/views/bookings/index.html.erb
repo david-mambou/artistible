@@ -30,7 +30,7 @@
     <% end %>
   <% else %>
     <%= link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %>
-
+    <%= link_to 'Review booking', new_booking_review_path(booking), class: "btn btn-success"  %>
   <% end %>
 
 <% end %>
