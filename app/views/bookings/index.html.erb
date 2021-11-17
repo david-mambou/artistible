@@ -26,13 +26,12 @@
               <b>Customer:</b> <%= booking.user.email %><br>
             <% else %>
               <b>Artist:</b> <%= booking.service.user.email %><br>
-            <% end %>
-          </div> <!--productinfo-->
             <div class="d-flex justify-content-center">
             <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %>
             </div>
+            <% end %>
+          </div> <!--productinfo-->
         </div> <!--card-bookings-->
-
           <% elsif booking.status == 'accepted' %>
           <div class="card-bookings m-3">
           <h2>Confirmed</h2>
