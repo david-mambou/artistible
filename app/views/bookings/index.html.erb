@@ -1,16 +1,17 @@
 
+<div class="container d-flex justify-content-center p-2">
 <% if current_user.artist %>
   <h1>Your bookings as an artist </h1>
 <% else %>
   <h1>Your bookings as a customer </h1>
 <% end %>
+</div>
 
 <div class="cards-wrapper">
   <% if current_user.bookings.present? %>
     <% @bookings.each do |booking| %>
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
-        <h2>Booking Pending <%= link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %></h2>
           <%= image_tag booking.service.photos.first %>
           <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
           <div class="card-hello-info">
@@ -26,6 +27,9 @@
               <b>Artist:</b> <%= booking.service.user.email %><br>
             <% end %>
           </div> <!--productinfo-->
+            <div class="d-flex justify-content-center">
+            <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %>
+            </div>
         </div> <!--card-bookings-->
 
           <% elsif booking.status == 'accepted' %>
@@ -43,7 +47,7 @@
             </div>
           </div>
         <% else %>
-        <div class="container">
+        <div class="container d-flex justify-content-center p-2">
           <h2>You haven't booked any artist!</h2>
         </div>
       <% end %>
