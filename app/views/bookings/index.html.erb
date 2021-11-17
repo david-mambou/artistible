@@ -4,35 +4,52 @@
   <h1>Your bookings as a customer </h1>
 <% end %>
 
-<% @bookings.each do |booking| %>
-  <%# TODO: Add card style after UI Components are finished %>
-  <hr>
-  <b>Title:</b> <%= booking.service.title %><br>
-  <b>Status:</b> <%= booking.status %><br>
-  <b>Start:</b> <%= booking.start_time %><br>
-  <b>End:</b> <%= booking.end_time %><br>
-  <% if current_user.artist %>
-    <b>Customer:</b> <%= booking.user.email %><br>
-  <% else %>
-    <b>Provider:</b> <%= booking.service.user.email %><br>
-  <% end %>
-
-  <% if current_user.artist? %>
-    <%# <% The CSS is not definitive at all %>
-    <% case booking.status %>
-    <% when 'pending' %>
-      <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
-      <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
-    <% when 'accepted' %>
-      <%= link_to 'Cancel booking', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
-    <% when 'declined' %>
-      <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+    <% if current_user.bookings.present? %>
+      <% @bookings.each do |booking| %>
+      <%= booking.status %>
+        <% if booking.status == 'pending' %>
+          <div class="container">
+            <h2>Booking Pending</h2>
+            <div class="card-product mb-3">
+              <%= image_tag booking.service.photos.first %>
+              <%# cl_image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
+              <div class="card-product-infos">
+              <%# TODO: Add card style after UI Components are finished %>
+                <hr>
+                <b>Title:</b> <%= booking.service.title %><br>
+                <b>Status:</b> <%= booking.status %><br>
+                <b>Price:</b> <%= booking.service.price %><br>
+                <b>Description:</b> <%= booking.service.description %><br>
+                <% if current_user.artist %>
+                  <b>Customer:</b> <%= booking.user.email %><br>
+                <% else %>
+                  <b>Artist:</b> <%= booking.service.user.email %><br>
+                <% end %>
+            </div>
+          </div>
+        </div>
+        <% elsif booking.status == 'accepted' %>
+          <div class="container">
+            <h2>Confirmed</h2>
+            <div class="card-product mb-3">
+              <%= image_tag booking.service.photos.first %>
+              <%# ? cl_image_path(booking.service.photo.first) : image_path(booking.service.photo_url) %>
+              <div class="card-product-infos">
+                <h2><%= booking.service.name.capitalize %></h2>
+                <p><%= booking.service.description.capitalize %></p>
+                <p><%= booking.service.size %></p>
+                <p><%= booking.service.price %></p>
+                <p><%= booking.start %></p>
+                <p><%= booking.end %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="container">
+        <h2>You haven't booked any artist!</h2>
+      </div>
     <% end %>
-  <% else %>
-    <%= link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %>
-
-  <% end %>
-
-<% end %>
-
-<%= render 'shared/booking_card' %>
+  </div>
+</div>
