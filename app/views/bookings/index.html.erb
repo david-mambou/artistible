@@ -12,7 +12,7 @@
             <h2>Booking Pending</h2>
             <div class="card-product mb-3">
               <%= image_tag booking.service.photos.first %>
-              <%# cl_image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
+              <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
               <div class="card-product-infos">
               <%# TODO: Add card style after UI Components are finished %>
                 <hr>
@@ -33,7 +33,7 @@
             <h2>Confirmed</h2>
             <div class="card-product mb-3">
               <%= image_tag booking.service.photos.first %>
-              <%# ? cl_image_path(booking.service.photo.first) : image_path(booking.service.photo_url) %>
+              <%# ? image_path(booking.service.photo.first) : image_path(booking.service.photo_url) %>
               <div class="card-product-infos">
                 <h2><%= booking.service.name.capitalize %></h2>
                 <p><%= booking.service.description.capitalize %></p>
@@ -52,5 +52,23 @@
         <h2>You haven't booked any artist!</h2>
       </div>
     <% end %>
-  </div>
-</div>
+
+  <%# else %>
+    <%=# link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %>
+    <%# Uncomment this if and its end to test the reviews %>
+    <%# if DateTime.now > booking.end_time %>
+      <%# if booking.review %>
+        <%=# link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
+      <%# else %>
+        <%=# link_to 'Review service', new_booking_review_path(booking), class: "btn btn-success"  %>
+      <%# end %>
+    <%# end %>
+  <%# end %>
+
+<%# end %>
+
+<%=# render 'shared/booking_card' %>
+
+  //</div>
+//</div>
+
