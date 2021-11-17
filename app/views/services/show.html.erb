@@ -1,18 +1,17 @@
 
 <div class="container my-5">
   <div class="row">
-   <% if @service.photos.attached? %>
-   <% @service.photos.each do |photo| %>
-      <div class="col-4">
-        <div class="servicecard-hello">
-        <%= image_tag(photo, class: 'art-img') %>
+    <% if @service.photos.attached? %>
+      <% @service.photos.each do |photo| %>
+        <div class="col-4">
+          <div class="servicecard-hello">
+            <%= image_tag(photo, class: 'art-img') %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     <% else %>
       <%= "no image" %>
-    <%# TODO: placeholder goes here %>
-    </div>
+      <%# TODO: placeholder goes here %>
     <% end %>
   </div>
 </div>
