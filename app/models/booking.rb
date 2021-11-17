@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :service
 
   enum status: { pending: 0, accepted: 1, declined: 2, archived: 3 }
-  validate :start_time, :end_time, presence: true
+  validates :start_time, :end_time, presence: true
   validate :valid_start_time?
   validate :valid_date_range?
 
