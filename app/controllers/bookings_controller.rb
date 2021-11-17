@@ -30,11 +30,14 @@ class BookingsController < ApplicationController
 
   # the customer can edit
   def edit
+    @booking = Booking.find(params[:id])
+    @service = @booking.service
   end
 
   def update
+    
     if @booking.update(sanitized_params)
-      @booking.status = 'pending'
+      @booking.status = 0
       @booking.save
       redirect_to bookings_path
     else
