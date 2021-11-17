@@ -6,8 +6,8 @@
   <% end %>
   <div class="card-hello-info">
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class='service-avatar-bordered'/>
-    <h3 class="service-title"><%= service.title %></h3>
-    <p class="card-price"><i class="yen fas fa-yen-sign"><%= service.price %></i></p>
+    <h4 class="service-title"><%= service.title %></h4>
+    <p class="card-price"><i class="yen fas fa-yen-sign">Daily: <%= service.price %></i></p>
     <p class="card-rating"><i class="star fas fa-star">Rating</i></p>
   </div>
   <%= link_to service_path(service), class: 'card-hello-link-wrapper' do %><% end %>
