@@ -1,38 +1,92 @@
+
+<div class="container d-flex justify-content-center p-2">
 <% if current_user.artist %>
   <h1>Your bookings as an artist </h1>
 <% else %>
   <h1>Your bookings as a customer </h1>
 <% end %>
+</div>
 
-<% @bookings.each do |booking| %>
-  <%# TODO: Add card style after UI Components are finished %>
-  <hr>
-  <b>Title:</b> <%= booking.service.title %><br>
-  <b>Status:</b> <%= booking.status %><br>
-  <b>Start:</b> <%= booking.start_time %><br>
-  <b>End:</b> <%= booking.end_time %><br>
-  <% if current_user.artist %>
-    <b>Customer:</b> <%= booking.user.email %><br>
-  <% else %>
-    <b>Provider:</b> <%= booking.service.user.email %><br>
-  <% end %>
+<div class="container">
+<div class="row">
+  <% if current_user.bookings.present? %>
+    <% @bookings.each do |booking| %>
+      <div class="col-sm-4">
+        <% if current_user.artist? %>
+          <%# <% The CSS is not definitive at all %>
+          <% case booking.status %>
+          <% when 'pending' %>
+            <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+            <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+          <% when 'accepted' %>
+            <%= link_to 'Cancel booking', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
+          <% when 'declined' %>
+            <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
+     
+      <% if booking.status == 'pending' %>
+        <div class="card-bookings m-3">
 
-  <% if current_user.artist? %>
-    <%# <% The CSS is not definitive at all %>
-    <% case booking.status %>
-    <% when 'pending' %>
-      <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
-      <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
-    <% when 'accepted' %>
-      <%= link_to 'Cancel booking', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
-    <% when 'declined' %>
-      <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+          <%= image_tag booking.service.photos.first %>
+          <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
+          <div class="card-hello-info">
+          <%# TODO: Add card style after UI Components are finished %>
+            <hr>
+            <b>Title:</b> <%= booking.service.title %><br>
+            <b>Status:</b> <%= booking.status %><br>
+            <b>Price:</b> <%= booking.service.price %><br>
+            <b>Description:</b> <%= booking.service.description %><br>
+            <% if current_user.artist %>
+              <b>Customer:</b> <%= booking.user.email %><br>
+            <% else %>
+              <b>Artist:</b> <%= booking.service.user.email %><br>
+            <div class="d-flex justify-content-center">
+            <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %>
+            </div>
+            <% end %>
+          </div> <!--productinfo-->
+        </div> <!--card-bookings-->
+        <% elsif booking.status == 'accepted' %>
+          <div class="card-bookings m-3">
+            <h2>Confirmed</h2>
+            <%= image_tag booking.service.photos.first %>
+            <%# ? image_path(booking.service.photo.first) : image_path(booking.service.photo_url) %>
+            <div class="card-hello-info">
+              <h2><%= booking.service.title.capitalize %></h2>
+              <p><%= booking.service.description.capitalize %></p>
+              <p><%= booking.service.price %></p>
+
+            </div>
+          </div>
+        <% else %>
+        <div class="container d-flex justify-content-center p-2">
+          <%# <h2>You haven't booked any artist!</h2> %>
+        </div>
+      <% end %>
+       </div>
     <% end %>
-  <% else %>
-    <%= link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %>
-
   <% end %>
+</div> <!--cardswrapper-->
+</div> <!--cardswrapper-->
 
-<% end %>
 
-<%= render 'shared/booking_card' %>
+
+  <%# else %>
+    <%# <%=# link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %>
+    <%# Uncomment this if and its end to test the reviews %>
+    <%# if DateTime.now > booking.end_time %>
+      <%# if booking.review %>
+        <%# <%=# link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
+      <%# else %>
+        <%# <%=# link_to 'Review service', new_booking_review_path(booking), class: "btn btn-success"  %>
+      <%# end %>
+    <%# end %>
+  <%# end %>
+
+<%# end %>
+
+<%# <%=# render 'shared/booking_card' %>
+
+  <%# //</div> %>
+<%# //</div> %>

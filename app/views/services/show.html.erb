@@ -1,17 +1,37 @@
-  <b>Title:</b> <%= @service.title %><br>
-  <b>Price:</b> <%= @service.price %><br>
-  <b>Description:</b> <%= @service.description %><br>
-  <b>Category:</b> <%= @service.category %><br>
-  <b>service by:</b> <%= @service.user.name %><br>
 
-   <% if @service.photos.attached? %>
-    <% @service.photos.each do |photo| %>
-      <%= image_tag(photo, :width => 150) %>
+<div class="container my-5">
+  <div class="row">
+    <% if @service.photos.attached? %>
+      <% @service.photos.each do |photo| %>
+        <div class="col-4">
+          <div class="servicecard-hello">
+            <%= image_tag(photo, class: 'art-img') %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= "no image" %>
+      <%# TODO: placeholder goes here %>
     <% end %>
-  <% else %>
-    no photos
-  <% end %>
-  <br>
+  </div>
+</div>
 
-  <%# TODO: Link to make a booking when controller is made %>
-  <%= link_to 'Make a Booking', new_service_booking_path(@service), class: "btn btn-primary" %>
+<div class="container my-5">
+  <div class="row text-center">
+    <div class="col-6 offset-3">
+      <div class="servicecard-hello-info">
+          <h1><%= @service.title %></h1>
+          <b>Price:</b> <%= @service.price %><br>
+          <b>Description:</b> <%= @service.description %><br>
+          <b>Category:</b> <%= @service.category %><br>
+          <b>service by:</b> <%= @service.user.name %><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <%= link_to 'Make a Booking', new_service_booking_path(@service), class: "main-button" %>
+  </div>
+</div>
