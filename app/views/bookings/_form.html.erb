@@ -3,8 +3,8 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <%= simple_form_for @booking do |f| %>
-        <%= f.input :start_time, :minute_step => 30, discard_year: true %>
-        <%= f.input :end_time, :minute_step => 30, discard_year: true %>
+        <%= f.input :start_time, as: :string, required: true, input_html: {id: "start_time"} %>
+        <%= f.input :end_time, as: :string, required: true, disabled: true, input_html: {id: "end_time"} %>
         <% if collection %>
           <%= f.association :service, collection: collection %>
         <% else %>
