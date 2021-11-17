@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :service
+  has_one :review
 
   enum status: { pending: 0, accepted: 1, declined: 2, archived: 3 }
   validates :start_time, :end_time, presence: true
