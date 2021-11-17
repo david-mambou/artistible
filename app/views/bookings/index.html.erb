@@ -12,6 +12,7 @@
     <% @bookings.each do |booking| %>
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
+
           <%= image_tag booking.service.photos.first %>
           <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
           <div class="card-hello-info">
