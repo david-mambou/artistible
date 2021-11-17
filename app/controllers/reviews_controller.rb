@@ -11,20 +11,24 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     authorize @review
     if @review.save
-      redirect_to service_path(@review.service)
+      redirect_to bookings_path
     else
       render :new
     end
   end
 
   def edit
-    @review = Review.where(id: params[:id])
+    @review = Review.where(id: params[:id]).first
+    @booking = @review.booking
     authorize @review
   end
 
   def update
+    @review = Review.where(id: params[:id]).first
+    @booking = @review.booking
+    authorize @review
     if @review.update(sanitized_params)
-      redirect_to service_path(@review.service)
+      redirect_to bookings_path
     else
       render :edit
     end

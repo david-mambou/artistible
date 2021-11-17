@@ -30,7 +30,12 @@
     <% end %>
   <% else %>
     <%= link_to 'Modify booking', edit_booking_path(booking), class: "btn btn-primary" %>
-    <%= link_to 'Review booking', new_booking_review_path(booking), class: "btn btn-success"  %>
+    <%# <% if DateTime.now > booking.end_time %>
+    <% if booking.review %>
+      <%= link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
+    <% else %>
+      <%= link_to 'Review service', new_booking_review_path(booking), class: "btn btn-success"  %>
+    <% end %>
   <% end %>
 
 <% end %>
