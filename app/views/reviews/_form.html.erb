@@ -1,7 +1,16 @@
-<p><%= @review.service.title %> by <%= @review.service.user.name %></p>
 
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :comment %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <p><strong>Service:</strong> <%= @review.service.title %> by <%= @review.service.user.name %></p>
+      <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :comment %>
+        <div class="row justify-content-between px-3">
+          <%= f.submit class: "btn btn-dark" %>
+          <%= link_to 'Cancel', bookings_path, class: "btn btn-warning" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
