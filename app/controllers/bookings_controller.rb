@@ -28,14 +28,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  # the customer can edit
   def edit
-    @booking = Booking.find(params[:id])
-    @service = @booking.service
   end
 
   def update
-    
     if @booking.update(sanitized_params)
       @booking.status = 0
       @booking.save
