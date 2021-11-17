@@ -1,32 +1,27 @@
 import flatpickr from "flatpickr";
 
 const initFlatpickr = () => {
-  const startDateInput = document.getElementById("start_time");
-  const endDateInput = document.getElementById("end_time");
+  const startTimeInput = document.getElementById('start_time');
+  const endTimeInput = document.getElementById('end_time');
 
-if (startDateInput && endDateInput) {
-  flatpickr(startDateInput, {
+  flatpickr("#start_time", {
     enableTime: true,
     dateFormat: "Y-m-d H",
     minDate: new Date().fp_incr(3),
-    maxDate: new Date().fp_incr(80),
-    onChange: function (selectedDates, selectedDate) {
-      if (selectedDate ==="") {
-        endDateInput.disabled = true;
-      }
-      }
-    }
+    maxDate: new Date().fp_incr(90) } )
+    // onChange: function(selectedDates, selectedDate) {
+    //   if (selectedDate === '') {
+    //     endTimeInput.disabled = true;
+    //       }
+    //     }
+    //   }
+    // )
 
-  });
-
-  flatpickr("#end_time", {
-    enableTime: true,
-    dateFormat: "Y-m-d H",
-    minDate: new Date().fp_incr(3),
-    maxDate: new Date().fp_incr(80),
-  });
-
+  console.log("Hello");
 }
-}
+
+// const initFlatpickr = () => {
+//   flatpickr(".datepicker", {});
+// }
 
 export { initFlatpickr };
