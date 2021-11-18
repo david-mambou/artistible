@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[edit update accept decline]
+  before_action :set_booking, only: %i[index edit update accept decline]
 
   def index
     @bookings = policy_scope(Booking)

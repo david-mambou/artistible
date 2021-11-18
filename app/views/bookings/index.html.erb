@@ -12,11 +12,11 @@
   <div class="row">
      <div class="col-sm-9">
       <h5>Bookings</h5>
-      
-     
+
+
       <div class="border p-3 rounded-lg d-flex justify-content-between">
-      
-   
+
+
            <table class="w-100">
             <tr>
               <th>Title</th>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg"><br><br><br><br></div></div>
- 
+
   </div>
 </div>
 <div class="container">
@@ -110,7 +110,19 @@
               <h2><%= booking.service.title.capitalize %></h2>
               <p><%= booking.service.description.capitalize %></p>
               <p><%= booking.service.price %></p>
-
+            </div>
+          </div>
+          <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modify booking for service: <strong><%= booking.service.title %></strong> by <%= booking.service.user.name %></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <%= render 'bookings/form' %>
+              </div>
             </div>
           </div>
         <% else %>

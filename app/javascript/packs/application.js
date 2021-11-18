@@ -27,7 +27,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/flatpickr";
-import { initBookingModal } from "../plugins/modal";
+import { initBookingModal } from "../plugins/booking-modal";
 
 
 document.addEventListener('turbolinks:load', () => {
