@@ -1,13 +1,27 @@
-
 <div class="container my-5">
   <h5><%= current_user.artist ? 'Latest Orders' : 'Bookings You Have Made' %></h5>
   <div class="row">
-    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Open Orders</h6><br><br><br><br></div></div>
-    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Orders</h6><br><br><br><br></div></div>
-    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Monthly Profit</h6><br><br><br><br></div></div>
-    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Profit</h6><br><br><br><br></div></div>
-
+    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Open Orders</h6>
+    <% if current_user.artist %>
+      <% current_user.bookings_as_owner.each do |booking| %>
+        <%= booking.user.name if booking.status == "pending" %>
+      <% end %>
+      <br><br><br><br></div></div>
+      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Orders</h6><br><br><br><br></div></div>
+      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Monthly Profit</h6>
+      <br><br><br><br></div></div>
+      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Profit</h6><br><br><br><br></div></div>
+    <% else %>
+      <% current_user.bookings.each do |booking| %>
+        <%= booking.service.title if booking.status == "pending" %>
+      <% end %>
+      <br><br><br><br></div></div>
+      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Orders</h6><br><br><br><br></div></div>
+      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Monthly Profit</h6>
+      <br><br><br><br></div></div>
+    <% end %>
   </div>
+
 
   <div class="row">
      <div class="col-sm-9">
@@ -27,24 +41,42 @@
               <th>Status</th>
               <th></th>
             </tr>
-            <tr>
-              <% current_user.bookings_as_owner.order("start_time ASC").each do |booking| %>
-              <td> <%=booking.service.title %> </td>
-              <% if booking.user.photo.attached? %>
-                <td> <%= cl_image_tag booking.user.photo.key, class: "avatar-square" %>
+              <% if current_user.artist %>
+                <tr>
+                  <% current_user.bookings_as_owner.order("start_time ASC").each do |booking| %>
+                  <td> <%=booking.service.title %> </td>
+                  <% if booking.user.photo.attached? %>
+                    <td> <%= cl_image_tag booking.user.photo.key, class: "avatar-square" %>
+                  <% else %>
+                  <td><img src="http://placehold.jp/50x50.png">
+                  <% end %>
+                  <%=booking.user.name %></td>
+                  <td><%= booking.start_time.to_formatted_s(:short) %> </td>
+                  <td><%= booking.end_time.to_formatted_s(:short) %> </td>
+                  <td><%= booking.service.price %></td>
+                  <td>🔴 <%= booking.status %> </td>
+                  <td>✏️</td>
+                  </tr>
+                  <% end %>
+                </tr>
               <% else %>
-              <td><img src="http://placehold.jp/50x50.png">
+                <tr>
+                  <% current_user.bookings.order("start_time ASC").each do |booking| %>
+                  <td> <%=booking.service.title %> </td>
+                    <% if booking.service.user.photo.attached? %>
+                      <td> <%= cl_image_tag booking.user.photo.key, class: "avatar-square" %>
+                    <% else %>
+                      <td><img src="http://placehold.jp/50x50.png">
+                    <% end %>
+                    <%= booking.service.user.name %></td>
+                    <td><%= booking.start_time.to_formatted_s(:short) %> </td>
+                    <td><%= booking.end_time.to_formatted_s(:short) %> </td>
+                    <td><%= booking.service.price %></td>
+                    <td>🔴 <%= booking.status %> </td>
+                    <td>✏️</td>
+                  </tr>
+                  <% end %>
               <% end %>
-              <%=booking.user.name %></td>
-              <td><%= booking.start_time.to_formatted_s(:short) %> </td>
-              <td><%= booking.end_time.to_formatted_s(:short) %> </td>
-              <td><%= booking.service.price %></td>
-              <td>🔴 <%= booking.status %> </td>
-              <td>✏️</td>
-              </tr>
-              <% end %>
-            </tr>
-
              <%# <tr>
               <td>Portrait</td>
               <td><img src="http://placehold.jp/50x50.png"></td>
@@ -68,8 +100,16 @@
       </div>
     </div>
     <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg">
-
-
+    <% current_user.services.each do |service| %>
+      <% service.reviews.each do |review| %>
+        <% if review.user.photo.attached? %>
+          <%= cl_image_tag review.user.photo.key, class: "avatar-square" %>
+        <% else %>
+          <img src="http://placehold.jp/50x50.png">
+        <% end %>
+        "<%= review.comment %>"
+      <% end %>
+    <% end %>
     <br><br><br><br></div></div>
 
   </div>
@@ -94,8 +134,11 @@
 
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
-
+          <% if booking.service.photos.present? %>
           <%= image_tag booking.service.photos.first %>
+          <% else %>
+          <%= "nothing" %>
+          <% end %>
           <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
           <div class="card-hello-info">
           <%# TODO: Add card style after UI Components are finished %>
