@@ -5,9 +5,10 @@ const initFlatpickr = () => {
   const endTimeInput = document.getElementById('end_time');
 
   if (startTimeInput && endTimeInput) {
-    flatpickr("#start_time", {
+    flatpickr(startTimeInput, {
       enableTime: true,
-      dateFormat: "Y-m-d H",
+      dateFormat: "Y-m-d H:i",
+      minuteIncrement: 60,
       minDate: new Date().fp_incr(3),
       maxDate: new Date().fp_incr(90),
       onChange: function(selectedDates, selectedDate) {
@@ -21,7 +22,8 @@ const initFlatpickr = () => {
     const endDate =
       flatpickr(endTimeInput, {
         enableTime: true,
-        dateFormat: "Y-m-d H"
+        minuteIncrement: 60,
+        dateFormat: "Y-m-d H:i"
 });}}
 
 // const initFlatpickr = () => {
