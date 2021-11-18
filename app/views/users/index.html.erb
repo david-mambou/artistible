@@ -8,19 +8,17 @@
 </div>
 
 <div class="container d-flex pt-3 pb-5 align-items-center justify-content-between">
-  <%= link_to "Murals", root_path, class: "mx-2 main-button" %>
-  <%= link_to "Paintings", root_path, class: "mx-2 main-button" %>
-  <%= link_to "Interior", root_path, class: "mx-2 main-button" %>
-  <%= link_to "Illustrations", root_path, class: "mx-2 main-button" %>
-  <%= link_to "Signwriting", root_path, class: "mx-2 main-button" %>
+  <%= link_to "Murals", root_path(category: "murals"), class: "mx-2 main-button" %>
+  <%= link_to "Paintings", root_path(category: "paintings"), class: "mx-2 main-button" %>
+  <%= link_to "Interior", root_path(category: "interior"), class: "mx-2 main-button" %>
+  <%= link_to "Illustrations", root_path(category: "illustrations"), class: "mx-2 main-button" %>
+  <%= link_to "Signwriting", root_path(category: "singwriting"), class: "mx-2 main-button" %>
 </div>
 
 <div class="container">
   <div class="flex-column">
   <% @artists.each do |artist| %>
-    <% artist.services.each do |service| %>
-      <%= render 'services/card', service: service %>
-    <% end %>
+      <%= render 'users/artist_card', artist: artist %>
   <% end %>
   </div>
 </div>

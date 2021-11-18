@@ -1,0 +1,30 @@
+<%# link_to service_path(service), class: 'card-hello-link-wrapper' do %><%# end %>
+<div class="d-flex p-4 rounded-lg bg-white mb-5">
+  <div class="text-center w-25">
+    <% if artist.photo.attached? %>
+      <%= image_tag(cl_image_path(artist.photo.key), class: 'rounded-circle') %>
+    <% else %>
+     <img src="http://placehold.jp/150x150.png" class="rounded-circle mb-2">
+    <% end %>
+    <h2 class="name-title"><%= artist.name %></h2>
+    <h4 class="location-title"><%= artist.address %></h4>
+    
+    <p><%= artist.summary %></p>
+    <% find_unique_categories(artist).each do |category| %>
+    <h3 class="badge badge-primary"><%= category %></h3>
+    <% end  %>
+    
+    <%= link_to "View Portfolio", user_path(artist), class: "my-2 mx-2 main-button" %>
+    </div>
+
+  <div class="d-flex justify-content-around w-100">
+    <img src="http://placehold.jp/250x250.png" class="ml-3">
+    <img src="http://placehold.jp/250x250.png" class="ml-3">
+    <img src="http://placehold.jp/250x250.png" class="ml-3">
+    <% artist.services.each do |service| %>
+      <% service.photos.each do |photo| %>
+        <%# Todo: Insert Image tag here when ready for carousel %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
