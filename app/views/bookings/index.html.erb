@@ -12,11 +12,11 @@
   <div class="row">
      <div class="col-sm-9">
       <h5>Bookings</h5>
-      
-     
+
+
       <div class="border p-3 rounded-lg d-flex justify-content-between">
-      
-   
+
+
            <table class="w-100">
             <tr>
               <th>Title</th>
@@ -28,16 +28,24 @@
               <th></th>
             </tr>
             <tr>
-              <td>Blackboard Writing</td>
-              <td><img src="http://placehold.jp/50x50.png"></td>
-              <td>2020/20/20</td>
-              <td>2020/20/22</td>
-              <td>¥100,000</td>
-              <td>🔴 Pending</td>
+              <% current_user.bookings_as_owner.order("start_time ASC").each do |booking| %>
+              <td> <%=booking.service.title %> </td>
+              <% if booking.user.photo.attached? %>
+                <td> <%= cl_image_tag booking.user.photo.key, class: "avatar-square" %>
+              <% else %>
+              <td><img src="http://placehold.jp/50x50.png">
+              <% end %>
+              <%=booking.user.name %></td>
+              <td><%= booking.start_time.to_formatted_s(:short) %> </td>
+              <td><%= booking.end_time.to_formatted_s(:short) %> </td>
+              <td><%= booking.service.price %></td>
+              <td>🔴 <%= booking.status %> </td>
               <td>✏️</td>
+              </tr>
+              <% end %>
             </tr>
 
-             <tr>
+             <%# <tr>
               <td>Portrait</td>
               <td><img src="http://placehold.jp/50x50.png"></td>
               <td>2020/20/20</td>
@@ -55,12 +63,15 @@
               <td>¥100,000</td>
               <td>🟢 Completed</td>
               <td>✏️</td>
-            </tr>
+            </tr> %>
            </table>
       </div>
     </div>
-    <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg"><br><br><br><br></div></div>
- 
+    <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg">
+
+
+    <br><br><br><br></div></div>
+
   </div>
 </div>
 <div class="container">
@@ -80,7 +91,7 @@
             <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
           <% end %>
         <% end %>
-     
+
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
 
