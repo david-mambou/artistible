@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def artists?
+  def index?
     true
   end
 end

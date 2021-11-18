@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  def artists
-    @artists = User.where(artist: true)
-    authorize @artists
+  def index
+    @artists = policy_scope(User).where(artist: true)
   end
 
   def show
