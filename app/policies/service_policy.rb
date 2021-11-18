@@ -21,11 +21,15 @@ class ServicePolicy < ApplicationPolicy
     true
   end
 
-  def edit
+  def edit?
     update?
   end
 
-  def update
+  def update?
+    the_artist?
+  end
+
+  def delete_photo?
     the_artist?
   end
 

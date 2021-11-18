@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[show edit]
+  before_action :set_service, only: %i[show edit update delete_photo]
 
   def index
     @services = policy_scope(Service)
@@ -30,13 +30,19 @@ class ServicesController < ApplicationController
   end
 
   def update
-    if @service.update(sanitizen_params)
+    params[:photos] << @service.photos
+    if @service.update(sanitized_params)
       flash[:notice] = 'New service added'
       redirect_to bookings_path
     else
       flash.now[:error] = 'Invalid parameters. Try again'
       render :edit
     end
+  end
+
+  def delete_photo
+    # @service.photos.delete_at(params[:index])
+    # @service.save
   end
 
   private

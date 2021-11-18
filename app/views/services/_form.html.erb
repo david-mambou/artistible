@@ -9,10 +9,11 @@
         <% if @service.photos.attached? %>
           <div class="container my-5">
             <div class="row">
-              <% @service.photos.each do |photo| %>
+              <% @service.photos.each_with_index do |photo, index| %>
                 <div class="col-4">
                   <div class="servicecard-hello">
                     <%= image_tag(photo, class: 'art-img') %>
+                    <%= link_to 'delete (does not work)', delete_photo_path(@service, :index => index), method: :patch %>
                   </div>
                 </div>
               <% end %>
