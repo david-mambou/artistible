@@ -1,26 +1,25 @@
 .card-hello {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 250px;
+  width: 250px;
   position: relative;
   border-radius: 16px;
   background-color: white;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  margin: 16px;
 }
 
 .card-hello-info .yen {
   position: relative;
-  bottom: 30px;
-  right: -270px;
 }
+
 .card-hello-info .star {
   position: relative;
-  bottom: 90px;
-  right: -260px;
 }
 
 .card-hello .art-img {
-  max-width: 100%;
+  min-width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
   border-radius: 16px 16px;
@@ -29,31 +28,20 @@
   min-height: 100%;
 }
 
-.card-hello-info {
-  overflow: hidden;
-  padding: 5px;
-  h3 {
-    margin: 5px;
-  }
-}
-
-.card-hello-info p {
-  margin: 5px;
-}
-
 .card-hello:hover .art-img {
   min-height: 75%;
 }
 
-.card-hello .avatar-bordered {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.service-title {
+  margin: 0;
+  padding: 0;
+}
+
+.card-hello-info {
+  overflow: hidden;
+  h4 {
+    margin: -2px;
+  }
 }
 
 .card-hello-link-wrapper {
