@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @artist = User.where(params[:id])
+    @artist = User.find(params[:id])
     authorize @artist
   end
 end

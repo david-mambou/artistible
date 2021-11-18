@@ -18,7 +18,7 @@
 <div class="container">
   <div class="flex-column">
     <% @services.each do |service| %>
-      <%= render 'shared/card.html.erb', service: service %>
+      <%= render 'services/card', service: service %>
     <% end %>
   </div>
 </div>
