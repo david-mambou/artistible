@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'artists/:id', to: 'users#show', as: :artist
 
-  resources :services, only: %i[index show new create edit update] do
+  resources :services, only: %i[index show new create edit update destroy] do
     resources :bookings, only: %i[new create]
   end
 

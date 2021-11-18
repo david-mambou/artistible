@@ -33,6 +33,10 @@ class ServicePolicy < ApplicationPolicy
     the_artist?
   end
 
+  def destroy?
+    the_artist?
+  end
+
   private
 
   def the_artist?

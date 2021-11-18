@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[show edit update delete_photo]
+  before_action :set_service, only: %i[show edit update delete_photo destroy]
 
   def index
     @services = policy_scope(Service)
@@ -39,7 +39,12 @@ class ServicesController < ApplicationController
     end
   end
 
+  def destroy
+    @service.destroy
+  end
+
   def delete_photo
+    # not working
     # @service.photos.delete_at(params[:index])
     # @service.save
   end
