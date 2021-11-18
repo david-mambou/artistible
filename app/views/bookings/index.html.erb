@@ -91,7 +91,7 @@
                 <td><%= booking.end_time.to_formatted_s(:short) %> </td>
                 <td><%= booking.service.price %></td>
                 <td>🔴 <%= booking.status %> </td>
-                <td> <%= link_to ('<i class="far fa-edit"></i>').html_safe, edit_booking_path(booking) %>
+                <td> <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %> </td>
                 <td> <% if DateTime.now > booking.end_time %>
                   <% if booking.review %>
                     <%= link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
