@@ -65,12 +65,12 @@
                   <td>
                     <% case booking.status %>
                     <% when 'pending' %>
-                      <%= link_to ('<i class="fas fa-check"></i>').html_safe, accept_booking_path(booking), method: :patch %>
-                      <%= link_to ('<i class="fas fa-times"></i>').html_safe, decline_booking_path(booking), method: :patch %>
+                      <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+                      <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
                     <% when 'accepted' %>
-                      <%= link_to ('<i class="fas fa-times"></i>').html_safe, decline_booking_path(booking), method: :patch  %>
+                      <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
                     <% when 'declined' %>
-                      <%= link_to ('<i class="fas fa-check"></i>').html_safe, accept_booking_path(booking), method: :patch %>
+                      <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
                     <% end %>
                   </td>
                   </tr>
