@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'users#artists'
+  root to: 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
-  resources :users, only: %i[show] do
-    collection do
-      get 'artists'
-    end
-  end
+
+  resources :users, only: %i[index show]
 
   get 'artists/:id', to: 'users#show', as: :artist
 
