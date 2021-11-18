@@ -19,7 +19,7 @@ class ServicesController < ApplicationController
     authorize @service
     if @service.save
       flash[:notice] = 'New service added'
-      redirect_to bookings_path # change to the artist dashboard
+      redirect_to bookings_path
     else
       flash.now[:error] = 'Invalid parameters. Try again'
       render :new
@@ -32,7 +32,7 @@ class ServicesController < ApplicationController
   def update
     if @service.update(sanitizen_params)
       flash[:notice] = 'New service added'
-      redirect_to bookings_path # change to the artist dashboard
+      redirect_to bookings_path
     else
       flash.now[:error] = 'Invalid parameters. Try again'
       render :edit

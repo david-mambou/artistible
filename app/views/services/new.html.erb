@@ -7,7 +7,7 @@
         <%= f.input :description %>
         <%= f.input :category %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Upload samples of your artwork' %>
-        <%# f.input :photos, as: :file, multiple: true, label: 'Upload samples of your artwork', name: "service[service_attachments_attributes][][photo]"  %>
+        <% f.input :photos, as: :file, multiple: true, label: 'Upload samples of your artwork', name: "service[service_attachments_attributes][][photo]"  %>
         <%= f.submit class: "btn btn-dark mg-2" %>
       <% end %>
     </div>
