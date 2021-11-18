@@ -1,0 +1,12 @@
+    <% current_user.services.each do |service| %>
+      <% service.reviews.each do |review| %>
+        <div class="row">
+        <% if review.user.photo.attached? %>
+          <%= cl_image_tag review.user.photo.key, class: "avatar" %>
+        <% else %>
+          <img src="http://placehold.jp/50x50.png", class = "avatar" >
+        <% end %>
+        "<%= review.comment %>"
+        </div>
+      <% end %>
+    <% end %>
