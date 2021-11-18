@@ -80,10 +80,8 @@
             <%= link_to 'Restore and accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
           <% end %>
         <% end %>
-     
       <% if booking.status == 'pending' %>
         <div class="card-bookings m-3">
-
           <%= image_tag booking.service.photos.first %>
           <%# image_path(booking.service.photos.first) : image_path(booking.service.photos_url) %>
           <div class="card-hello-info">
