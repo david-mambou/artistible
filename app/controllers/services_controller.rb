@@ -30,7 +30,6 @@ class ServicesController < ApplicationController
   end
 
   def update
-    params[:photos] << @service.photos
     if @service.update(sanitized_params)
       flash[:notice] = 'New service added'
       redirect_to bookings_path
