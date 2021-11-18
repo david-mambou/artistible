@@ -96,7 +96,7 @@
             <% else %>
               <b>Artist:</b> <%= booking.service.user.email %><br>
             <div class="d-flex justify-content-center">
-            <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %>
+            <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button modify-booking" %>
             </div>
             <% end %>
           </div> <!--productinfo-->
@@ -112,7 +112,7 @@
               <p><%= booking.service.price %></p>
             </div>
           </div>
-          <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal fade bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -121,6 +121,8 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
+                <% @booking = booking %>
+                <% @service = booking.service %>
                 <%= render 'bookings/form' %>
               </div>
             </div>

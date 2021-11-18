@@ -8,16 +8,23 @@ const initBookingModal = () => {
   const modifyBooking = document.querySelectorAll('.modify-booking');
   const cancelButton = document.getElementById("cancel-button");
 
-  makeBooking.addEventListener('click', (event) => showModal(event));
+  if (makeBooking) {
+    makeBooking.addEventListener('click', (event) => {
+      event.preventDefault();
+      $('.bookingModal').modal('show');
+    });
+  };
 
   modifyBooking.forEach((button) => {
     button.addEventListener('click', (event) => showModal(event));
   });
 
-  cancelButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    $('#bookingModal').modal('hide')
-  });
+  if (cancelButton) {
+    cancelButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      $('#bookingModal').modal('hide')
+    });
+  };
 };
 
 
