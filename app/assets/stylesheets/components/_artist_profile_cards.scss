@@ -2,11 +2,12 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(110, 76, 76, 0.3);
   display: flex;
   align-items: center;
   margin-bottom: 16px;
   height: 100%;
+  border-radius: 10px;
 }
 
 .card-product img {
@@ -35,6 +36,10 @@
   text-align: center;
   margin: 8px;
   padding: 8px;
+  p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .name-title {
