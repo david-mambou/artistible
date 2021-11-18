@@ -3,7 +3,7 @@
 <% if booking.user.photo.attached? %>
   <td> <%= cl_image_tag booking.user.photo.key, class: "avatar" %>
 <% else %>
-<td><img src="http://placehold.jp/50x50.png", class="avatar">
+ <td><img src="http://placehold.jp/50x50.png", class="avatar">
 <% end %>
 <br>
 <%=booking.user.name.capitalize %></td>
@@ -38,12 +38,12 @@
 <% else %>
   <td> <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %> </td>
   <td>
-    <% if DateTime.now > booking.end_time %>
+    <%# if DateTime.now > booking.end_time %>
       <% if booking.review %>
         <%= link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
       <% else %>
         <%= link_to 'Review service', new_booking_review_path(booking), class: "btn btn-success"  %>
       <% end %>
-    <% end %>
+    <%# end %>
   </td>
 <% end %>

@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :bookings_as_owner, through: :services, source: :bookings
   has_many :reviews, through: :bookings
   has_one_attached :photo
+  has_many :services_as_customer, through: :bookings, source: :service
 end

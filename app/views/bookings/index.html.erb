@@ -46,7 +46,10 @@
         </div>
       </div>
       <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg">
-        <%= render "reviews" %></div>
+        <% current_user.services.each do |service| %>
+          <%= render "reviews", :service => service %>
+        </div>
+        <% end %>
       </div>
     </div>
   <% end %>
@@ -75,10 +78,12 @@
             </tr>
           </table>
         </div>
+      </div>
+      <div class="col-sm-3"><h5>Reviews from other customers</h5><div class="border p-5 rounded-lg">
+        <% current_user.services_as_customer.each do |service| %>
+          <%= render "reviews", :service => service %>
+        <% end %>
         </div>
-      <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg">
-        <%= render "reviews" %></div>
       </div>
     </div>
   <% end %>
-</div>
