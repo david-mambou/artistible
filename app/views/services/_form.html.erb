@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for @service do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :category %>
+        <%= f.input :price %>
+        <% if @service.photos.attached? %>
+          <div class="container my-5">
+            <div class="row">
+              <% @service.photos.each_with_index do |photo, index| %>
+                <div class="col-4">
+                  <div class="servicecard-hello">
+                    <%= image_tag(photo, class: 'art-img') %>
+                    <%= link_to 'delete (does not work)', delete_photo_path(@service, :index => index), method: :patch %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Upload samples of your artwork' %>
+        <% f.input :photos, as: :file, multiple: true, label: 'Upload samples of your artwork', name: "service[service_attachments_attributes][][photo]"  %>
+        <%= f.submit class: "btn btn-dark mg-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>

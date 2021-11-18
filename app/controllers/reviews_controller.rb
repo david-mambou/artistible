@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
   def new
-    @booking = Booking.where(id: params[:booking_id]).first
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(booking: @booking)
     authorize @review
   end
 
   def create
-    @booking = Booking.where(id: params[:booking_id]).first
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(sanitized_params)
     @review.booking = @booking
     authorize @review
@@ -18,13 +18,13 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.where(id: params[:id]).first
+    @review = Review.find(params[:id])
     @booking = @review.booking
     authorize @review
   end
 
   def update
-    @review = Review.where(id: params[:id]).first
+    @review = Review.find(params[:id])
     @booking = @review.booking
     authorize @review
     if @review.update(sanitized_params)
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
   end
 
   def delete
-    @review = Review.where(id: params[:id])
+    @review = Review.find(params[:id])
     authorize @review
     @review.destroy
   end

@@ -1,0 +1,53 @@
+.booking-card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(110, 76, 76, 0.3);
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+//artist card HERE
+
+.artist-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  text-align: center;
+  margin: 8px;
+  padding: 8px;
+  p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.name-title {
+  color: rgb(69, 69, 69);
+  font-size: 24px;
+}
+
+.location-title {
+  color: grey;
+  font-size: 12px;
+}

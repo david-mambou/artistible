@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-  def artists
-    @artists = User.where(artist: true)
-    authorize @artists
+  def index
+    @artists = policy_scope(User).where(artist: true)
   end
 
   def show
-    @artist = User.where(params[:id])
+    @artist = User.find(params[:id])
     authorize @artist
+    # TODO Hardcoded for now, update ;later
+    @tags = ["murals","graffiti","painting"]
   end
 end
