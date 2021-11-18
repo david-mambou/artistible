@@ -1,11 +1,11 @@
 class ServicesController < ApplicationController
+  before_action :set_service, only: %i[show edit]
+
   def index
     @services = policy_scope(Service)
   end
 
   def show
-    @service = Service.find(params[:id])
-    authorize @service
   end
 
   def new
@@ -18,11 +18,24 @@ class ServicesController < ApplicationController
     @service.user = current_user
     authorize @service
     if @service.save
-      flash[:notice] = "New service added"
-      redirect_to root_path
+      flash[:notice] = 'New service added'
+      redirect_to bookings_path # change to the artist dashboard
     else
-      flash.now[:error] = 'Try again'
+      flash.now[:error] = 'Invalid parameters. Try again'
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @service.update(sanitizen_params)
+      flash[:notice] = 'New service added'
+      redirect_to bookings_path # change to the artist dashboard
+    else
+      flash.now[:error] = 'Invalid parameters. Try again'
+      render :edit
     end
   end
 
@@ -30,5 +43,10 @@ class ServicesController < ApplicationController
 
   def sanitized_params
     params.require("service").permit(:price, :title, :description, :category, photos: [])
+  end
+
+  def set_service
+    @service = Service.find(params[:id])
+    authorize @service
   end
 end

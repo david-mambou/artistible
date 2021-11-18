@@ -20,4 +20,18 @@ class ServicePolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit
+    update?
+  end
+
+  def update
+    the_artist?
+  end
+
+  private
+
+  def the_artist?
+    record.user == user
+  end
 end
