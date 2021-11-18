@@ -8,7 +8,7 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum illo id iusto provident libero, debitis unde culpa inventore sed nam voluptatem ex laboriosam ipsam exercitationem aut maiores quos, facilis impedit? NEEDS FURTHER STYLING</p>
     </div>
   </div>
-    <div class="w3-card-4 ml-4 mt-2 border border-primary p-4">
+  <div class="w3-card-4 ml-4 mt-2 border border-primary p-4">
     <header class="w3-container w3-blue">
       <h1>Latest reviews</h1>
     </header>
@@ -17,36 +17,16 @@
     </div>
   </div>
 </div>
-
-<div class="container p-3 mt-2">
+<% @tags.each do |tag| %>
+  <div class="container p-3 mt-2">
     <div>
-      <h2 class="d-flex justify-content-center"><span class="bg-primary">Category 1</span></h2>
+      <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-danger" id="<%= tag %>"><%= tag.capitalize %></span></h2>
     </div>
-  <div class="card-product">
+    <div class="booking-card-product">
+      <%= render 'booking_card'%>
       <% @artist.services.each do |service| %>
-      <%= render 'artist_show_card', service: service %>
-    <% end %>
-  </div>
-</div>
-
-<div class="container p-3 mt-2">
-    <div>
-      <h2 class="d-flex justify-content-center"><span class="bg-secondary">Category 2</span></h2>
+        <%= render 'artist_show_card', service: service %>
+      <% end %>
     </div>
-  <div class="card-product">
-      <% @artist.services.each do |service| %>
-      <%= render 'artist_show_card', service: service %>
-    <% end %>
   </div>
-</div>
-
-<div class="container p-3 mt-2">
-    <div>
-      <h2 class="d-flex justify-content-center"><span class="bg-danger">Category 3</span></h2>
-    </div>
-  <div class="card-product">
-      <% @artist.services.each do |service| %>
-      <%= render 'artist_show_card', service: service %>
-    <% end %>
-  </div>
-</div>
+<% end %>
