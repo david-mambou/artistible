@@ -6,10 +6,10 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
-    @service = Service.find(params[:service_id])
+    # @booking = Booking.new
+    # @service = Service.find(params[:service_id])
     # TODO: Prefill service (needs to be passed from the services show)
-    authorize @booking
+    # authorize @booking
   end
 
   def create

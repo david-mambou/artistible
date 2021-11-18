@@ -2,17 +2,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-    <% service = @service if @service.present? %>
-    <% if service.present? %>
-        <%= service.title %>
-          <%= simple_form_for [service, @booking] do |f| %>
+      <% service = @service if @service.present? %>
+      <% if service.present? %>
+        <%= simple_form_for [service, @booking] do |f| %>
           <%= f.input :start_time, as: :string, required: true, input_html: {id: "start_time"} %>
           <%= f.input :end_time, as: :string, required: true, disabled: true, input_html: {id: "end_time"} %>
-            <div class="row justify-content-between px-3">
+          <div class="row justify-content-between px-3 py-4">
             <%= f.submit class: "main-button" %>
-            <%= link_to 'Cancel', services_path, class: "main-button" %>
-            </div>
-          <% end %>
+            <%= link_to 'Cancel', services_path, class: "main-button", id: "cancel-button" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
