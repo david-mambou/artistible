@@ -1,12 +1,68 @@
 
-<div class="container d-flex justify-content-center p-2">
-<% if current_user.artist %>
-  <h1>Your bookings as an artist </h1>
-<% else %>
-  <h1>Your bookings as a customer </h1>
-<% end %>
-</div>
+<div class="container my-5">
+  <h5><%= current_user.artist ? 'Latest Orders' : 'Bookings You Have Made' %></h5>
+  <div class="row">
+    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Open Orders</h6><br><br><br><br></div></div>
+    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Orders</h6><br><br><br><br></div></div>
+    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Monthly Profit</h6><br><br><br><br></div></div>
+    <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Profit</h6><br><br><br><br></div></div>
 
+  </div>
+
+  <div class="row">
+     <div class="col-sm-9">
+      <h5>Bookings</h5>
+      
+     
+      <div class="border p-3 rounded-lg d-flex justify-content-between">
+      
+   
+           <table class="w-100">
+            <tr>
+              <th>Title</th>
+              <th><%= current_user.artist ? 'Client' : 'Artist' %></th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th><%= current_user.artist ? 'Profit' : 'Price' %></th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Blackboard Writing</td>
+              <td><img src="http://placehold.jp/50x50.png"></td>
+              <td>2020/20/20</td>
+              <td>2020/20/22</td>
+              <td>¥100,000</td>
+              <td>🔴 Pending</td>
+              <td>✏️</td>
+            </tr>
+
+             <tr>
+              <td>Portrait</td>
+              <td><img src="http://placehold.jp/50x50.png"></td>
+              <td>2020/20/20</td>
+              <td>2020/20/22</td>
+              <td>¥100,000</td>
+              <td>🟢 Completed</td>
+              <td>✏️</td>
+            </tr>
+
+             <tr>
+              <td>Interior Wall</td>
+              <td><img src="http://placehold.jp/50x50.png"></td>
+              <td>2020/20/20</td>
+              <td>2020/20/22</td>
+              <td>¥100,000</td>
+              <td>🟢 Completed</td>
+              <td>✏️</td>
+            </tr>
+           </table>
+      </div>
+    </div>
+    <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg"><br><br><br><br></div></div>
+ 
+  </div>
+</div>
 <div class="container">
 <div class="row">
   <% if current_user.bookings.present? %>
