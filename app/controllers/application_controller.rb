@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  before_action :flash_alert_for_incoming_bookings
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
@@ -22,7 +21,4 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-  def flash_alert_for_incoming_bookings
-    flash.now[:notice] = "You have new bookings" if current_user.bookings_as_owner.where(booking_viewed: false).count.positive?
-  end
 end

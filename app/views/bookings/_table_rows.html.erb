@@ -1,6 +1,8 @@
 <%# SERVICE IMAGE %>
-<td>          
-  <%= cl_image_tag(booking.service.photos.first.key, height: 100, width: 100, crop: 'fill', class: 'artist-card-images') %>
+<td>       
+  <% if booking.service.photos.attached? %>   
+    <%= cl_image_tag(booking.service.photos.first.key, height: 100, width: 100, crop: 'fill', class: 'artist-card-images') %>
+  <% end %>
 </td>
 <td> <%=booking.service.title %> </td>
 <% if booking.user.photo.attached? %>
