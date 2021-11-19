@@ -36,7 +36,7 @@
 
 <%# if current user is the customer of the booking %>
 <% else %>
-  <td><%= link_to 'Modify Booking', '#edit', class: "main-button modify-booking", data: { bookingid: booking.id } %></td>
+  <td><%= link_to 'Modify Booking', '#edit', class: "modern-button modify-booking", data: { bookingid: booking.id } %></td>
   <td>
     <%# if DateTime.now > booking.end_time commented for demo purposes %>
       <% if booking.review %>
