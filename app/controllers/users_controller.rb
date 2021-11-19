@@ -7,6 +7,6 @@ class UsersController < ApplicationController
     @artist = User.find(params[:id])
     authorize @artist
     # TODO Hardcoded for now, update ;later
-    @tags = ["murals","graffiti","painting"]
+    @tags = ["murals", "painting", "interior", "illustrations", "signwritting"]
   end
 end
