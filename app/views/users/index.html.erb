@@ -1,13 +1,13 @@
 <div class="banner-wrapper">
   <div class="container">
     <div class="banner  w-50">
-      <h1 class="display-4">Find Local Artists<br> for a unique service</h1>
+      <h1 class="display-4">Find Local Artists<br>
+         for a unique service</h1>
       <p>Explore all the artists in your local area for a one-of-a-kind service that will truly stand out.</p>
     </div>
-      <%= image_tag 'bannerbg.png', class: 'banner-img'%>
+    <%= image_tag 'bannerbg.png', class: 'banner-img'%>
   </div>
 </div>
-
 <div class="category-filter ">
   <div class="d-flex py-3 align-items-center justify-content-center">
     <%= link_to "Murals", root_path(category: "murals"), class: "mx-2 pill" %>
@@ -17,12 +17,11 @@
     <%= link_to "Signwriting", root_path(category: "singwriting"), class: "mx-2 pill" %>
   </div>
 </div>
-
 <div class="container">
   <div class="flex-column">
-  <% @artists.each do |artist| %>
+    <% @artists.each do |artist| %>
       <%= render 'users/artist_card', artist: artist %>
-  <% end %>
+    <% end %>
   </div>
 </div>
 1

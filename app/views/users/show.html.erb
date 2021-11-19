@@ -3,23 +3,24 @@
     <div class="col-9">
       <div class="d-flex pb-3">
         <%= render "artist_profile_card", artist: @artist %>
-        <div class="border border-primary p-4">
-          <header class="w3-container w3-blue">
-            <h1>Artist Bio</h1>
-          </header>
-          <div class="w3-container m-4">
+        <div class="p-4">
+          <header class="shadow p-3 mb-5 bg-white rounded">
+            <h1>Artist Bio:</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum illo id iusto provident libero, debitis unde culpa inventore sed nam voluptatem ex laboriosam ipsam exercitationem aut maiores quos, facilis impedit? NEEDS FURTHER STYLING</p>
-          </div>
+          </header>
         </div>
       </div>
       <div>
+        <% current_tags = find_unique_categories(@artist) %>
         <% @tags.each do |tag| %>
           <div>
-            <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-light" style="background-color: #DAA5CF;" id="<%= tag %>"><%= tag.capitalize %></span></h2>
+            <% if current_tags.include? tag %>
+              <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-light" style="background-color: #DAA5CF;" id="<%= tag %>"><%= tag.capitalize %></span></h2>
+            <% end %>
           </div>
           <% @artist.services.where(category: tag).each do |service| %>
             <div class="booking-card-product">
-              <%= render 'artist_show_card', service: service %>
+              <%=render 'artist_show_card', service: service %>
               <%# #TODO: remove non existent tags %>
             </div>
           <% end %>
@@ -27,14 +28,10 @@
       </div>
     </div>
     <div class="col-3">
-      <div class="border border-primary p-4 sticky-top">
-        <header class="w3-container w3-blue">
-          <h1>Latest reviews</h1>
-        </header>
-        <div class="w3-container m-4">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum illo id iusto provident libero, debitis unde culpa inventore sed nam voluptatem ex laboriosam ipsam exercitationem aut maiores quos, facilis impedit? NEEDS FURTHER STYLING</p>
-        </div>
-      </div>
+      <header class="shadow p-3 mt-4 bg-white rounded">
+        <h2>Latest review</h2>
+        <%= render "bookings/reviews", review: current_user.reviews.first%>
+      </header>
     </div>
   </div>
 </div>

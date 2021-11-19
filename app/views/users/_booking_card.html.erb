@@ -1,8 +1,11 @@
 <div class="d-flex mr-3 justify-content-between border-right">
   <div class="booking-card p-3 m-1">
-    <h3>Service Title</h3>
-    <p class="booking-price">$19.99</p>
-    <p>Service rating???</p>
+    <h3> <%= service.title %></h3>
+    <p class="booking-price">
+      <i class="yen fas fa-yen-sign">
+        <%= service.price %>
+      </i>
+    </p>
     <%= link_to "Book Artist", "#book", class: "modern-button ml-2 new-booking", style: "width:150px;", data: { serviceid: service.id } %>
   </div>
   <%= render 'bookings/modal_new', service: service, booking: @booking %>
