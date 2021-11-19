@@ -26,7 +26,7 @@ p 'generating fake users'
 #               bio: Faker::Lorem.sentence)
 # end
 
-20.times do
+15.times do
   name = Faker::FunnyName.name
   email = Faker::Internet.email(name: name)
   user = User.create(name: name,
