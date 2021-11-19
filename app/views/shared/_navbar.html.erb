@@ -13,7 +13,12 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "My Bookings", bookings_path, class: "nav-link inverse-modern-button" %>
+            <% if current_user.artist %>
+            <%= link_to "Post new service", new_service_path, class: "nav-link mr-2" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "#{ current_user.artist ? 'Dashboard' : 'My Bookings' }", bookings_path, class: "nav-link inverse-modern-button" %>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
