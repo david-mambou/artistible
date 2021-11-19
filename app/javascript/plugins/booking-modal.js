@@ -9,19 +9,22 @@ const hideModal = (event, modalId) => {
 };
 
 const initBookingModal = () => {
-  const makeBooking = document.getElementById("new-booking");
+  const makeBooking = document.querySelectorAll('.new-booking');
   const modifyBooking = document.querySelectorAll('.modify-booking');
   console.log(modifyBooking);
   // use data attribute
   const cancelButton = document.querySelectorAll(".cancel-button");
 
   if (makeBooking) {
-    makeBooking.addEventListener('click', (event) => showModal(event, '#bookingModal'));
+    makeBooking.forEach((button) => {
+      button.addEventListener('click', (event) => showModal(event, `#new-booking-${button.dataset.serviceid}`)); // add id to the button
+    });
+  }
+  else if (modifyBooking) {
+    modifyBooking.forEach((button) => {
+      button.addEventListener('click', (event) => showModal(event, `#booking-${button.dataset.bookingid}`));
+    });
   };
-
-  modifyBooking.forEach((button) => {
-    button.addEventListener('click', (event) => showModal(event, `#booking-${button.dataset.bookingid}`));
-  });
 
   if (cancelButton) {
     cancelButton.forEach((button) => {

@@ -9,7 +9,7 @@
           <%= f.input :end_time, as: :string, required: true, input_html: {id: "end_time"} %>
           <div class="row justify-content-between px-3 py-4">
             <%= f.submit class: "main-button" %>
-            <%= link_to 'Cancel', services_path, class: "main-button cancel-button", data: { bookingid: booking.id } %>
+            <%= link_to 'Cancel', '', class: "main-button cancel-button", data: { bookingid: booking.id } %>
           </div>
         <% end %>
       <% end %>
