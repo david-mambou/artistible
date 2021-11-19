@@ -11,15 +11,15 @@
   }
 }
 
-
 .modern-button {
   background-color: #af1e8f;
   color: white;
   padding: 8px 15px;
   border-radius: 8px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: 0.3s;
-
   &:hover {
     color: white;
     text-decoration: none;
@@ -34,7 +34,6 @@
   padding: auto 15px;
   border-radius: 4px;
   transition: 0.3s;
-
   &:hover {
     background-color: #af1e8f;
     color: white !important;
@@ -54,5 +53,7 @@
   &:hover {
     background-color: #daa5cf;
     text-decoration: none;
+    color:white;
+    cursor: pointer;
   }
 }
