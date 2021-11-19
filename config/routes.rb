@@ -7,8 +7,13 @@ Rails.application.routes.draw do
 
   get 'artists/:id', to: 'users#show', as: :artist
 
+<<<<<<< HEAD
   resources :services, only: %i[index show new create edit update destroy] do
     resources :bookings, only: %i[index show new create]
+=======
+  resources :services, only: %i[show new create edit update destroy] do
+    resources :bookings, only: %i[new create]
+>>>>>>> cc6f0131ad0ad8c979c93a6ccac678eab1cefa29
   end
 
   resources :bookings, only: %i[index edit update] do

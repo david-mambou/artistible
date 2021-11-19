@@ -1,0 +1,49 @@
+<td><img src="http://placehold.jp/150x150.png"></td>
+<td> <%=booking.service.title %> </td>
+<% if booking.user.photo.attached? %>
+  <td> <%= cl_image_tag booking.user.photo.key, class: "avatar" %>
+<% else %>
+ <td><img src="http://placehold.jp/50x50.png", class="avatar">
+<% end %>
+<br>
+<%=booking.user.name.capitalize %></td>
+<td><%= booking.start_time.to_formatted_s(:short) %> </td>
+<td><%= booking.end_time.to_formatted_s(:short) %> </td>
+<td><%= booking.service.price %></td>
+<% case booking.status %>
+  <% when "pending" %>
+    <td>🟡<%= booking.status.capitalize %></td>
+  <% when 'accepted' %>
+    <td>🟢<%= booking.status.capitalize %></td>
+  <% when 'declined' %>
+    <td>🔴<%= booking.status.capitalize %></td>
+<% end %>
+
+
+<%# if current_user is not the customer of the booking, absolutely necessary because two different types of bookings are being passed %>
+<% if current_user != booking.user %>
+  <td>
+    <% case booking.status %>
+      <% when 'pending' %>
+        <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+        <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+      <% when 'accepted' %>
+        <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+      <% when 'declined' %>
+        <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+    <% end %>
+  </td>
+
+<%# if current user is the customer of the booking %>
+<% else %>
+  <td> <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %> </td>
+  <td>
+    <%# if DateTime.now > booking.end_time %>
+      <% if booking.review %>
+        <%= link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
+      <% else %>
+        <%= link_to 'Review service', new_booking_review_path(booking), class: "btn btn-success"  %>
+      <% end %>
+    <%# end %>
+  </td>
+<% end %>
