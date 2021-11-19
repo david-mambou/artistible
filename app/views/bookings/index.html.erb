@@ -96,7 +96,7 @@
                 <% else %>
                   <b>Artist:</b> <%= booking.service.user.email %><br>
                   <div class="d-flex justify-content-center">
-                    <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button modify-booking", data: { bookingid: booking.id.to_s } %>
+                    <%= link_to 'Modify Booking', '#edit', class: "main-button modify-booking", data: { bookingid: booking.id } %>
                   </div>
                 <% end %>
               </div> <!--productinfo-->
