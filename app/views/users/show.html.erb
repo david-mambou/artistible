@@ -17,12 +17,12 @@
           <div>
             <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-danger" id="<%= tag %>"><%= tag.capitalize %></span></h2>
           </div>
-          <div class="booking-card-product">
-            <%= render 'booking_card'%>
-            <% @artist.services.each do |service| %>
+          <% @artist.services.where(category: tag).each do |service| %>
+            <div class="booking-card-product">
               <%= render 'artist_show_card', service: service %>
-            <% end %>
-          </div>
+              <%# #TODO: remove non existent tags %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
