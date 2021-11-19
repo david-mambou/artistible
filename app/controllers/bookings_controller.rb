@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    current_user.bookings_as_owner.update_all(booking_viewed: true)
   end
 
   def new
