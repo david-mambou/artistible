@@ -1,18 +1,21 @@
-<div class="banner-container">
-  <div class="jumbotron" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url(<%= asset_path 'banner.jpg'%>);">
-    <div class="container">
-      <h1 class="display-4">Local Artists for Something Unique</h1>
-      <p>Hire a creative artist near you for a unique, one of a kind service</p>
+<div class="banner-wrapper">
+  <div class="container">
+    <div class="banner  w-50">
+      <h1 class="display-4">Find Local Artists<br> for a unique service</h1>
+      <p>Explore all the artists in your local area for a one-of-a-kind service that will truly stand out.</p>
     </div>
+      <%= image_tag 'bannerbg.png', class: 'banner-img'%>
   </div>
 </div>
 
-<div class="container d-flex pt-3 pb-5 align-items-center justify-content-between">
-  <%= link_to "Murals", root_path(category: "murals"), class: "mx-2 main-button" %>
-  <%= link_to "Paintings", root_path(category: "paintings"), class: "mx-2 main-button" %>
-  <%= link_to "Interior", root_path(category: "interior"), class: "mx-2 main-button" %>
-  <%= link_to "Illustrations", root_path(category: "illustrations"), class: "mx-2 main-button" %>
-  <%= link_to "Signwriting", root_path(category: "singwriting"), class: "mx-2 main-button" %>
+<div class="category-filter ">
+  <div class="d-flex py-3 align-items-center justify-content-center">
+    <%= link_to "Murals", root_path(category: "murals"), class: "mx-2 pill" %>
+    <%= link_to "Paintings", root_path(category: "paintings"), class: "mx-2 pill" %>
+    <%= link_to "Interior", root_path(category: "interior"), class: "mx-2 pill" %>
+    <%= link_to "Illustrations", root_path(category: "illustrations"), class: "mx-2 pill" %>
+    <%= link_to "Signwriting", root_path(category: "singwriting"), class: "mx-2 pill" %>
+  </div>
 </div>
 
 <div class="container">
