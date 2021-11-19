@@ -7,7 +7,4 @@ class Service < ApplicationRecord
   CATEGORIES = ['murals', 'paintings', 'interior', 'illustrations', 'signwriting'].freeze
   validates :category, inclusion: { in: CATEGORIES }
 
-  def average_rating
-    reviews.average(:rating)
-  end
 end
