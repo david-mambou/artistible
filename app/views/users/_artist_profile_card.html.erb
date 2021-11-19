@@ -7,11 +7,13 @@
   <h2 class="name-title"><%= artist.name %></h2>
   <h4 class="location-title"><%= artist.address ? artist.address : "Location Unknown" %></h4>
   <div>
-    <p class="card-rating"><i class="star fas fa-star"><%= artist.average_rating %></i></p>
+    <p class="card-rating"><i class="star fas fa-star" style="color: gold; opactity: 0.5;"><%= artist.average_rating %></i></p>
     <p>My Services:</p>
     <%# TODO: These are hard coded, fix this later %>
-    <%= link_to "Murals", '#murals', class: "badge badge-pill badge-primary" %>
-    <%= link_to "Painting", '#painting', class: "badge badge-pill badge-secondary" %>
-    <%= link_to "Graffiti", '#graffiti', class: "badge badge-pill badge-danger" %>
+    <%= link_to "Murals", '#murals', class: "badge badge-pill modern-badge" %>
+    <%= link_to "Painting", '#painting', class: "badge badge-pill modern-badge" %>
+    <%= link_to "Interior", '#interior', class: "badge badge-pill modern-badge" %>
+    <%= link_to "Illustrations", '#illustrations', class: "badge badge-pill modern-badge" %>
+    <%= link_to "Signwritting", '#signwritting', class: "badge badge-pill modern-badge" %>
   </div>
 </div>
