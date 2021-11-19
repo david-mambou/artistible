@@ -29,12 +29,14 @@ p 'generating fake users'
 20.times do
   name = Faker::FunnyName.name
   email = Faker::Internet.email(name: name)
-  User.create(name: name,
+  user = User.create(name: name,
               email: email,
               summary: "I am a #{Faker::Job.title} who does Murals on the weekends.",
               password: 'password',
               artist: [true, false].sample,
               bio: Faker::Lorem.sentence)
+  file = URI.open("https://source.unsplash.com/200x200/?person")
+  user.photo.attach(io: file, filename: 'temp.png', content_type: 'image/png')
 end
 
 p 'populating artists with fake content'
