@@ -6,4 +6,5 @@ class Service < ApplicationRecord
 
   CATEGORIES = ['murals', 'paintings', 'interior', 'illustrations', 'signwriting'].freeze
   validates :category, inclusion: { in: CATEGORIES }
+
 end
