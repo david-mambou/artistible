@@ -1,4 +1,4 @@
-<% service.reviews.each do |review| %>
+<%# <% service.reviews.each do |review| %>
   <div class="row">
     <% if review.user.photo.attached? %>
       <%= cl_image_tag review.user.photo.key, class: "avatar" %>
@@ -7,4 +7,4 @@
     <% end %>
     "<%= review.comment %>"
   </div>
-<% end %>
+<%# <% end %>

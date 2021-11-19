@@ -7,7 +7,7 @@
   <h2 class="name-title"><%= artist.name %></h2>
   <h4 class="location-title"><%= artist.address ? artist.address : "Location Unknown" %></h4>
   <div>
-    <p class="card-rating"><i class="star fas fa-star" style="color: gold; opactity: 0.5;"><%= artist.average_rating %></i></p>
+    <p class="card-rating"><i class="star fas fa-star" style="color: gold; text-shadow: 1px 1px 0px black;"><%= artist.average_rating %></i></p>
     <p>My Services:</p>
     <%# TODO: These are hard coded, fix this later %>
     <% find_unique_categories(artist).each do |category| %>
