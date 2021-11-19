@@ -1,0 +1,2 @@
+<% avatar = current_user.photo.attached? ? current_user.photo.key : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" %>
+<%= cl_image_tag avatar, class: "avatar" %>
