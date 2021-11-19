@@ -30,6 +30,7 @@
 //artist card HERE
 
 .artist-card {
+  border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 200px;
   text-align: center;
@@ -46,4 +47,8 @@
 .location-title {
   color: grey;
   font-size: 12px;
+}
+
+.artist-card-images {
+  border-radius: 15px;
 }

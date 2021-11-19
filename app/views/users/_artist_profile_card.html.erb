@@ -1,0 +1,17 @@
+<div class="artist-card">
+  <% if artist.photo.attached? %>
+    <img src= <%="#{cl_image_path(artist.photo.key)}"%> alt="place" style="width:125px">
+  <% else %>
+    <img src= <%= asset_path "logo.png"%> style="width:125px">
+  <% end %>
+  <h2 class="name-title"><%= artist.name %></h2>
+  <h4 class="location-title"><%= artist.address ? artist.address : "Location Unknown" %></h4>
+  <div>
+    <p class="card-rating"><i class="star fas fa-star"><%= artist.average_rating %></i></p>
+    <p>My Services:</p>
+    <%# TODO: These are hard coded, fix this later %>
+    <%= link_to "Murals", '#murals', class: "badge badge-pill badge-primary" %>
+    <%= link_to "Painting", '#painting', class: "badge badge-pill badge-secondary" %>
+    <%= link_to "Graffiti", '#graffiti', class: "badge badge-pill badge-danger" %>
+  </div>
+</div>

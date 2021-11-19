@@ -1,17 +1,17 @@
-<div class="card-hello" style="width: 200px; height: 200px;">
-    <% if service.photos.attached? %>
-      <%= image_tag(service.photos.first, class: 'art-img') %>
-    <% else %>
-      <%# TODO: placeholder goes here %>
-    <% end %>
-    <div class="card-hello-info">
-      <div class="d-flex justify-content-center">
-        <h4 class="service-title"><%= service.title %></h4>
-      </div>
-      <div class="d-flex justify-content-center mb-2">
-        <p class="card-price"><i class="yen fas fa-yen-sign">Price: <%= service.price %></i></p>
-        <p class="card-rating"><i class="star fas fa-star">Rating</i></p>
-      </div>
+  <%= render 'booking_card'%>
+<div class="card-hello" style="width: 150px; height: 150px;">
+  <% if service.photos.attached? %>
+    <%= image_tag(service.photos.first, class: 'art-img') %>
+  <% else %>
+    <%# TODO: placeholder goes here %>
+  <% end %>
+  <div class="card-hello-info">
+    <div class="d-flex justify-content-center">
+      <h1 class="service-title" style="font-size: 16px;"><%= service.title %></h1>
     </div>
-    <%= link_to service_path(service), class: 'card-hello-link-wrapper' do %><% end %>
+    <div class="d-flex justify-content-center mb-2">
+      <p class="card-price"><i class="yen fas fa-yen-sign">Price: <%= service.price %></i></p>
+    </div>
+  </div>
+  <%= link_to service_path(service), class: 'card-hello-link-wrapper' do %><% end %>
 </div>

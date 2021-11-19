@@ -1,4 +1,3 @@
-<%# link_to service_path(service), class: 'card-hello-link-wrapper' do %><%# end %>
 <div class="d-flex p-4 rounded-lg bg-white mb-5">
   <div class="text-center w-25">
     <% if artist.photo.attached? %>
@@ -18,13 +17,15 @@
     <%= link_to "View Portfolio", user_path(artist), class: "my-3 modern-button" %>
     </div>
 
-  <div class="d-flex justify-content-around w-100">
-    <img src="http://placehold.jp/250x250.png" class="m-2">
-    <img src="http://placehold.jp/250x250.png" class="m-2">
-    <img src="http://placehold.jp/250x250.png" class="m-2">
-    <% artist.services.each do |service| %>
-      <% service.photos.each do |photo| %>
-        <%# Todo: Insert Image tag here when ready for carousel %>
+  <div class="d-flex justify-content-around w-100 align-items-center">
+  
+    <% artist.services.each.with_index do |service, index| %>
+      <% if index == 0 %>
+        <% service.photos.each do |photo| %>
+
+
+          <%= cl_image_tag(photo.key, height: 230, width: 230, crop: 'fill', class: 'artist-card-images') %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
