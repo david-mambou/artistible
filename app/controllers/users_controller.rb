@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def index
-    @artists = policy_scope(User).where(artist: true)
+    
+    # if params['category'].present?
+    # @artists = policy_scope(User).where(artist: true).joins(:services).where('service.category ILIKE murals')
+
+      @artists = policy_scope(User).where(artist: true)
+    # else
+    # end
   end
 
   def show
@@ -9,4 +15,15 @@ class UsersController < ApplicationController
     # TODO Hardcoded for now, update ;later
     @tags = ["murals", "painting", "interior", "illustrations", "signwritting"]
   end
+  
+  def find_unique_categories(artist)
+    arr = []
+    # artists.first.services.category
+    artist.services.each do |service|
+      arr.push(service.category) unless arr.include?(service.category)
+    end
+    return arr
+  end
+
+  helper_method :find_unique_categories
 end

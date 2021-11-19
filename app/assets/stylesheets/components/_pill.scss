@@ -1,0 +1,58 @@
+.pill {
+  background-color: #af1e8f;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 12px;
+
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+.modern-button {
+  background-color: #af1e8f;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: 0.3s;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #8f1775;
+  }
+}
+
+.inverse-modern-button {
+  color: #af1e8f !important;
+  border: 1px solid #af1e8f;
+  background-color: transparent;
+  padding: auto 15px;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #af1e8f;
+    color: white !important;
+    text-decoration: none;
+  }
+}
+
+.modern-badge {
+  background-color: #ffc4f2;
+  color: #af1e8f;
+  font-size: 12px;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 5px 8px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #daa5cf;
+    text-decoration: none;
+  }
+}

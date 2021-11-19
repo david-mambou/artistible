@@ -1,6 +1,13 @@
+.navbar-wrapper {
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+}
+
+#logo {
+  width: 150px;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: #fffaf9
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,5 +19,6 @@
 }
 
 #navbarDropdown {
+
   cursor: pointer;
 }
