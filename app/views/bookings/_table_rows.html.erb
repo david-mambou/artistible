@@ -20,7 +20,7 @@
 <% end %>
 
 
-<%# if current_user is not the customer of the booking, absolutely necessary because two different types of bookings are being passed %>
+<%# if current_user is not the customer of the booking (i.e. he's the artist), absolutely necessary because two different types of bookings are being passed %>
 <% if current_user != booking.user %>
   <td>
     <% case booking.status %>
@@ -36,9 +36,9 @@
 
 <%# if current user is the customer of the booking %>
 <% else %>
-  <td> <%= link_to 'Modify Booking', edit_booking_path(booking), class: "main-button" %> </td>
+  <td><%= link_to 'Modify Booking', '#edit', class: "main-button modify-booking", data: { bookingid: booking.id } %></td>
   <td>
-    <%# if DateTime.now > booking.end_time %>
+    <%# if DateTime.now > booking.end_time commented for demo purposes %>
       <% if booking.review %>
         <%= link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
       <% else %>
@@ -46,4 +46,5 @@
       <% end %>
     <%# end %>
   </td>
+  <%= render 'bookings/modal_edit', booking: booking %>
 <% end %>
