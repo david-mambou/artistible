@@ -17,15 +17,15 @@ const initBookingModal = () => {
     makeBooking.forEach((button) => {
       button.addEventListener('click', (event) => showModal(event, `#new-booking-${button.dataset.serviceid}`));
     });
+    cancelButton.forEach((button) => {
+      button.addEventListener('click', (event) => hideModal(event, `#new-booking-${button.dataset.serviceid}`));
+    });
   };
 
   if (modifyBooking) {
     modifyBooking.forEach((button) => {
       button.addEventListener('click', (event) => showModal(event, `#booking-${button.dataset.bookingid}`));
     });
-  };
-
-  if (cancelButton) {
     cancelButton.forEach((button) => {
       button.addEventListener('click', (event) => hideModal(event, `#booking-${button.dataset.bookingid}`));
     });

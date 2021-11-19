@@ -1,31 +1,9 @@
 <div class="container my-5">
-  <h5><%= current_user.artist ? 'Latest Orders' : 'Bookings You Have Made' %></h5>
-  <div class="row">
-    <% if current_user.artist %>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Open Orders</h6>
-        <% current_user.bookings_as_owner.each do |booking| %>
-          <%= booking.user.name if booking.status == "pending" %>
-        <% end %>
-      <br><br><br><br></div></div>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Orders</h6><br><br><br><br></div></div>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Monthly Profit</h6><br><br><br><br></div></div>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Profit</h6><br><br><br><br></div></div>
-    <% else %>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Open Orders</h6>
-        <% current_user.bookings.each do |booking| %>
-          <%= booking.service.title if booking.status == "pending" %>
-        <% end %>
-      <br><br><br><br></div></div>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Total Orders</h6><br><br><br><br></div></div>
-      <div class="col-sm-3"><div class="border p-5 rounded-lg mb-5"><h6>Monthly Profit</h6><br><br><br><br></div></div>
-    <% end %>
-  </div>
-
   <% if current_user.artist %>
     <div class="row">
-      <div class="col-sm-9">
-        <h5>Bookings from clients</h5>
-        <div class="border p-3 rounded-lg d-flex justify-content-between">
+      <div class="col-sm-12">
+        <h4>Customer Orders</h4>
+        <div class="simple-card p-3 rounded-lg d-flex justify-content-between">
           <table class="w-100">
             <tr>
               <th></th>
@@ -45,20 +23,16 @@
           </table>
         </div>
       </div>
-      <div class="col-sm-3"><h5>Latest Reviews</h5><div class="border p-5 rounded-lg">
-        <% current_user.services.each do |service| %>
-          <%= render "reviews", :service => service %>
-        </div>
-        <% end %>
-      </div>
+    
     </div>
+    <br>
   <% end %>
-
+  
   <% if !current_user.artist || current_user.bookings.present? %>
     <div class="row">
-      <div class="col-sm-9">
-        <h5>Bookings to artists</h5>
-        <div class="border p-3 rounded-lg d-flex justify-content-between">
+      <div class="col-sm-12">
+        <h4>Bookings You've Made</h4>
+        <div class="simple-card p-3 rounded-lg d-flex justify-content-between">
           <table class="w-100">
             <tr>
               <th></th>

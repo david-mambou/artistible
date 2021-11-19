@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
     if params['category'].present?
-      @artists = policy_scope(User).where(artist: true).joins(:services).where('services.category ILIKE ?', "%#{params['category']}%")
+      @artists = policy_scope(User).where(artist: true).joins(:services).where('services.category ILIKE ?', "%#{params['category']}%").order(created_at: :desc)
     else
-      @artists = policy_scope(User).where(artist: true)
+      @artists = policy_scope(User).where(artist: true).order(created_at: :desc)
     end
   end
 

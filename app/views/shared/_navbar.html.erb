@@ -20,9 +20,6 @@
           <li class="nav-item">
             <%= link_to "#{ current_user.artist ? 'Dashboard' : 'My Bookings' }", bookings_path, class: "nav-link inverse-modern-button" %>
           </li>
-          <li class="nav-item">
-          <i class="fas fa-bell"><%= current_user.bookings_as_owner.where(booking_viewed: false).count %></i>
-          </li>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle ml-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

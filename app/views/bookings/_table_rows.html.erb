@@ -1,4 +1,7 @@
-<td><img src="http://placehold.jp/150x150.png"></td>
+<%# SERVICE IMAGE %>
+<td>          
+  <%= cl_image_tag(booking.service.photos.first.key, height: 100, width: 100, crop: 'fill', class: 'artist-card-images') %>
+</td>
 <td> <%=booking.service.title %> </td>
 <% if booking.user.photo.attached? %>
   <td> <%= cl_image_tag booking.user.photo.key, class: "avatar" %>
@@ -9,7 +12,7 @@
 <%=booking.user.name.capitalize %></td>
 <td><%= booking.start_time.to_formatted_s(:short) %> </td>
 <td><%= booking.end_time.to_formatted_s(:short) %> </td>
-<td><%= booking.service.price %></td>
+<td>¥<%= booking.service.price %></td>
 <% case booking.status %>
   <% when "pending" %>
     <td>🟡<%= booking.status.capitalize %></td>
@@ -26,11 +29,11 @@
     <% case booking.status %>
       <% when 'pending' %>
         <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
-        <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+        <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning btn-block" %>
       <% when 'accepted' %>
-        <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+        <%= link_to 'Decline booking', decline_booking_path(booking), method: :patch, class: "btn btn-warning btn-block" %>
       <% when 'declined' %>
-        <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+        <%= link_to 'Accept booking', accept_booking_path(booking), method: :patch, class: "btn btn-success btn-block" %>
     <% end %>
   </td>
 
@@ -40,9 +43,9 @@
   <td>
     <%# if DateTime.now > booking.end_time commented for demo purposes %>
       <% if booking.review %>
-        <%= link_to 'Modify review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
+        <%= link_to 'Edit Review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
       <% else %>
-        <%= link_to 'Review service', new_booking_review_path(booking), class: "btn btn-success"  %>
+        <%= link_to 'Review Service', new_booking_review_path(booking), class: "btn btn-success"  %>
       <% end %>
     <%# end %>
   </td>
