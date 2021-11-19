@@ -3,6 +3,7 @@
     <h3>Service Title</h3>
     <p class="booking-price">$19.99</p>
     <p>Service rating???</p>
-    <%= link_to "Book Artist", "", class: "main-button ml-2", style: "width:150px;" %>
+    <%= link_to "Book Artist", "#book", class: "main-button ml-2 new-booking", style: "width:150px;", data: { serviceid: service.id } %>
   </div>
+  <%= render 'bookings/modal_new', service: service, booking: @booking %>
 </div>

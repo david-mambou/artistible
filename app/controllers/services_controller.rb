@@ -6,6 +6,9 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new(service: @service)
+    # TODO: Prefill service (needs to be passed from the services show)
+    # authorize @booking
   end
 
   def new

@@ -27,11 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/flatpickr";
-// import { initSelect2 } from '../components/init_select2';
+import { initBookingModal } from "../plugins/booking-modal";
 
 
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
-  // Call your functions here, e.g:
-  // initSelect2();
+  initBookingModal();
 });

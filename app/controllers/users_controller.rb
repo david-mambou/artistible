@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    
+
     # if params['category'].present?
     # @artists = policy_scope(User).where(artist: true).joins(:services).where('service.category ILIKE murals')
 
@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   def show
     @artist = User.find(params[:id])
     authorize @artist
+    @booking = Booking.new
     # TODO Hardcoded for now, update ;later
     @tags = ["murals", "painting", "interior", "illustrations", "signwritting"]
   end
-  
+
   def find_unique_categories(artist)
     arr = []
     # artists.first.services.category

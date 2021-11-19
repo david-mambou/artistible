@@ -32,6 +32,8 @@
 
 <div class="container mb-5">
   <div class="row justify-content-center">
-    <%= link_to 'Make a Booking', new_service_booking_path(@service), class: "main-button" %>
+    <%= link_to 'Book Now', '#book', class: "main-button", id: "new-booking" %>
   </div>
 </div>
+
+<%= render 'bookings/modal_new', service: @service %>
