@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css" data-tippy-stylesheet="">.tippy-iOS{cursor:pointer!important;-webkit-tap-highlight-color:transparent}.tippy-popper{transition-timing-function:cubic-bezier(.165,.84,.44,1);max-width:calc(100% - 8px);pointer-events:none;outline:0}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-7px;bottom:-6.5px;-webkit-transform-origin:50% 0;transform-origin:50% 0;margin:0 3px}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 3px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 25%;transform-origin:0 25%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-55%);transform:scale(1) translate(-50%,-55%)}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%,-45%);transform:scale(.2) translate(-50%,-45%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(-10px);transform:perspective(700px) translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(60deg);transform:perspective(700px) rotateX(60deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=top] [data-animation=scale]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px) scale(.5);transform:translateY(-10px) scale(.5)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-7px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;margin:0 3px}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 3px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -50%;transform-origin:0 -50%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-45%);transform:scale(1) translate(-50%,-45%)}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%);transform:scale(.2) translate(-50%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(10px);transform:perspective(700px) translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(-60deg);transform:perspective(700px) rotateX(-60deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=scale]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px) scale(.5);transform:translateY(10px) scale(.5)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-12px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%;margin:3px 0}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-75%,-50%);transform:scale(.2) translate(-75%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(-10px);transform:perspective(700px) translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(-60deg);transform:perspective(700px) rotateY(-60deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=left] [data-animation=scale]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px) scale(.5);transform:translateX(-10px) scale(.5)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-12px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%;margin:3px 0}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-50% 0;transform-origin:-50% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-25%,-50%);transform:scale(.2) translate(-25%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(10px);transform:perspective(700px) translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(60deg);transform:perspective(700px) rotateY(60deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=right] [data-animation=scale]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px) scale(.5);transform:translateX(10px) scale(.5)}.tippy-tooltip{position:relative;color:#fff;border-radius:.25rem;font-size:.875rem;padding:.3125rem .5625rem;line-height:1.4;text-align:center;background-color:#333}.tippy-tooltip[data-size=small]{padding:.1875rem .375rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.375rem .75rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:initial}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] .tippy-roundarrow path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:18px;height:7px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;background-color:#333;border-radius:50%;width:calc(110% + 2rem);left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:"";float:left;padding-top:100%}.tippy-backdrop+.tippy-content{transition-property:opacity;will-change:opacity}.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0}</style><style type="text/css" data-tag-name="trix-editor">trix-editor {
+  display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+  content: attr(placeholder);
+  color: graytext;
+  cursor: text;
+  pointer-events: none;
+}
+
+trix-editor a[contenteditable=false] {
+  cursor: text;
+}
+
+trix-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+  resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+  position: absolute;
+  left: -9999px;
+  max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+  content: attr(data-trix-placeholder);
+  color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+  display: inline-block !important;
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+  vertical-align: top !important;
+  margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+  vertical-align: bottom !important;
+  margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Classmates · Kitt</title>
+    <link rel="stylesheet" media="all" href="classmates_files/application-751e1f7ec6ea42fda326d71f2e5b9f808ee7b8a52a72afa4.css" id="stylesheet">
+    <link rel="stylesheet" media="screen" href="classmates_files/application-a7e5bcccfae45dac5eb61916ade53038.css">
+    
+    <link rel="icon" type="image/png" href="https://d26jy9fbi4q9wx.cloudfront.net/assets/favicon-78bfa184892a74357d550c1a209f52e7072af7e9e84ad1b000785f19bc1f8f22.png">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="KwJpHJkA0oyHn8V/zy9cnOK4zSm4ILaE/C2lesyqSi118qiAeF2vANhgeG+rBVoDvcA3HF+rN4TvWXNC+nFD4A==">
+  <style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style>@-webkit-keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-shown{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;box-shadow:0 0 .625em #d9d9d9;overflow-y:hidden}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:initial;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon-text{font-size:2em;font-weight:700;line-height:1em}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 .0625em #fff,0 0 0 .125em rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:2em;height:2.8125em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.25em;left:-.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:2em 2em;transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;-webkit-transform-origin:0 2em;transform-origin:0 2em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:showSweetToast .5s;animation:showSweetToast .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:hideSweetToast .2s forwards;animation:hideSweetToast .2s forwards}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:animate-toast-success-tip .75s;animation:animate-toast-success-tip .75s}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:animate-toast-success-long .75s;animation:animate-toast-success-long .75s}@-webkit-keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@-webkit-keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-shown{top:auto;right:auto;bottom:auto;left:auto;background-color:transparent}body.swal2-no-backdrop .swal2-shown>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-shown.swal2-top{top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-top-left,body.swal2-no-backdrop .swal2-shown.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-top-end,body.swal2-no-backdrop .swal2-shown.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-shown.swal2-center{top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-left,body.swal2-no-backdrop .swal2-shown.swal2-center-start{top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-end,body.swal2-no-backdrop .swal2-shown.swal2-center-right{top:50%;right:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom{bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom-left,body.swal2-no-backdrop .swal2-shown.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swal2-shown.swal2-bottom-right{right:0;bottom:0}.swal2-container{display:flex;position:fixed;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:10px;background-color:transparent;z-index:1060;overflow-x:hidden;-webkit-overflow-scrolling:touch}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-container.swal2-fade{transition:background-color .1s}.swal2-container.swal2-shown{background-color:rgba(0,0,0,.4)}.swal2-popup{display:none;position:relative;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-popup .swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-popup .swal2-title{display:block;position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-popup .swal2-actions{flex-wrap:wrap;align-items:center;justify-content:center;margin:1.25em auto 0;z-index:1}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm{width:2.5em;height:2.5em;margin:.46875em;padding:0;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;box-sizing:border-box;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{display:inline-block;width:15px;height:15px;margin-left:5px;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff;content:'';-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal}.swal2-popup .swal2-styled{margin:.3125em;padding:.625em 2em;font-weight:500;box-shadow:none}.swal2-popup .swal2-styled:not([disabled]){cursor:pointer}.swal2-popup .swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled:focus{outline:0;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(50,100,150,.4)}.swal2-popup .swal2-styled::-moz-focus-inner{border:0}.swal2-popup .swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-popup .swal2-image{max-width:100%;margin:1.25em auto}.swal2-popup .swal2-close{position:absolute;top:0;right:0;justify-content:center;width:1.2em;height:1.2em;padding:0;transition:color .1s ease-out;border:none;border-radius:0;outline:initial;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer;overflow:hidden}.swal2-popup .swal2-close:hover{-webkit-transform:none;transform:none;color:#f27474}.swal2-popup>.swal2-checkbox,.swal2-popup>.swal2-file,.swal2-popup>.swal2-input,.swal2-popup>.swal2-radio,.swal2-popup>.swal2-select,.swal2-popup>.swal2-textarea{display:none}.swal2-popup .swal2-content{justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:300;line-height:normal;z-index:1;word-wrap:break-word}.swal2-popup #swal2-content{text-align:center}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-radio,.swal2-popup .swal2-select,.swal2-popup .swal2-textarea{margin:1em auto}.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-textarea{width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;font-size:1.125em;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);box-sizing:border-box}.swal2-popup .swal2-file.swal2-inputerror,.swal2-popup .swal2-input.swal2-inputerror,.swal2-popup .swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-popup .swal2-file:focus,.swal2-popup .swal2-input:focus,.swal2-popup .swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-popup .swal2-file::-webkit-input-placeholder,.swal2-popup .swal2-input::-webkit-input-placeholder,.swal2-popup .swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-popup .swal2-file:-ms-input-placeholder,.swal2-popup .swal2-input:-ms-input-placeholder,.swal2-popup .swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::-ms-input-placeholder,.swal2-popup .swal2-input::-ms-input-placeholder,.swal2-popup .swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::placeholder,.swal2-popup .swal2-input::placeholder,.swal2-popup .swal2-textarea::placeholder{color:#ccc}.swal2-popup .swal2-range input{width:80%}.swal2-popup .swal2-range output{width:20%;font-weight:600;text-align:center}.swal2-popup .swal2-range input,.swal2-popup .swal2-range output{height:2.625em;margin:1em auto;padding:0;font-size:1.125em;line-height:2.625em}.swal2-popup .swal2-input{height:2.625em;padding:0 .75em}.swal2-popup .swal2-input[type=number]{max-width:10em}.swal2-popup .swal2-file{font-size:1.125em}.swal2-popup .swal2-textarea{height:6.75em;padding:.75em}.swal2-popup .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;color:#545454;font-size:1.125em}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-radio{align-items:center;justify-content:center}.swal2-popup .swal2-checkbox label,.swal2-popup .swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-popup .swal2-checkbox input,.swal2-popup .swal2-radio input{margin:0 .4em}.swal2-popup .swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;background:#f0f0f0;color:#666;font-size:1em;font-weight:300;overflow:hidden}.swal2-popup .swal2-validation-message::before{display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center;content:'!';zoom:normal}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}.swal2-icon{position:relative;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;line-height:5em;cursor:default;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;zoom:normal}.swal2-icon-text{font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:3.75em 3.75em;transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 3.75em;transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;top:-.25em;left:-.25em;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%;z-index:2;box-sizing:content-box}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;top:.5em;left:1.625em;width:.4375em;height:5.625em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);z-index:1}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;height:.3125em;border-radius:.125em;background-color:#a5dc86;z-index:2}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.875em;width:1.5625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-progresssteps{align-items:center;margin:0 0 1.25em;padding:0;font-weight:600}.swal2-progresssteps li{display:inline-block;position:relative}.swal2-progresssteps .swal2-progresscircle{width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center;z-index:20}.swal2-progresssteps .swal2-progresscircle:first-child{margin-left:0}.swal2-progresssteps .swal2-progresscircle:last-child{margin-right:0}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep{background:#3085d6}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep~.swal2-progresscircle{background:#add8e6}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep~.swal2-progressline{background:#add8e6}.swal2-progresssteps .swal2-progressline{width:2.5em;height:.4em;margin:0 -1px;background:#3085d6;z-index:10}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-show.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-hide.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-animate-success-icon .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-animate-error-icon{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-animate-error-icon .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}@-webkit-keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:initial!important}}</style><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;box-sizing: content-box;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+  <body class="bg-grey" data-controller="navbar-menu" data-action="keyup-&gt;navbar-menu#closeMenuOnEscape" cz-shortcut-listen="true">
+    <div data-controller="utilities--toggle-full-screen">
+      <nav class="container-fluid navbar" data-utilities--toggle-full-screen-target="navbar">
+    <div class="navbar-collection d-flex">
+      <a class="logo d-none d-sm-block" href="https://kitt.lewagon.com/">
+        <img alt="Le Wagon logo" class="navbar-logo" src="classmates_files/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a6.svg">
+</a>      <img alt="Le Wagon logo" class="navbar-logo d-sm-none" data-action="click-&gt;navbar-menu#toggleMenu" data-target="navbar-trigger.btn" src="classmates_files/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a6.svg">
+
+      <button class="menu-trigger menu-trigger-mobile" data-action="navbar-menu#toggleMenu" data-target="navbar-trigger.btn">
+  <div class="menu-trigger-content">
+    <span class="menu-trigger-content-label d-none d-sm-block">#727 Web FT</span>
+    <span class="menu-trigger-content-label d-sm-none">#727 Web FT</span>
+        <span class="menu-trigger-content-city">Tokyo</span>
+  </div>
+  <i class="mdi mdi-menu menu-trigger-icon d-none d-sm-block" data-target="navbar-menu.menuIcon"></i>
+</button>
+
+<!-- Main Menu -->
+<div class="menu menu-main d-none" data-controller="navbar-side-panel-menu" data-target="navbar-menu.mainMenu">
+  <div class="overflow-scroll h-100">
+    <!-- Menu only for mobile -->
+      <div class="nav-mobile-links">
+  <!-- Menu section -->
+<div class="menu-panel visible d-xl-none" data-target="navbar-menu.menuPanel">
+  <span class="menu-panel-name"></span>
+  <ul class="menu-panel-items">
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727">
+      <i class="menu-panel-item-icon "></i>
+      Dashboard
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727/challenges">
+      <i class="menu-panel-item-icon "></i>
+      Challenges
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727/lectures">
+      <i class="menu-panel-item-icon "></i>
+      Lectures
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727/flashcards">
+      <i class="menu-panel-item-icon "></i>
+      Flashcards
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727/products">
+      <i class="menu-panel-item-icon "></i>
+      Products
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link active" href="https://kitt.lewagon.com/camps/727/classmates">
+      <i class="menu-panel-item-icon "></i>
+      Classmates
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727/zoom">
+      <i class="menu-panel-item-icon "></i>
+      Zoom Campus
+</a>  </li>
+
+  </ul>
+</div>
+
+  </div>
+
+
+    <!-- Batch links -->
+    
+
+    <!-- City links -->
+    
+
+    <!-- Jump to links -->
+    <!-- Menu section -->
+<div class="menu-panel visible" data-target="navbar-menu.menuPanel">
+  <span class="menu-panel-name">Jump to</span>
+  <ul class="menu-panel-items">
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/camps/727?path=05-Rails%2F10-Airbnb-Ajax-in-Rails">
+      <i class="menu-panel-item-icon mdi mdi-code-tags"></i>
+      Batch #727 Web FT
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/alumni">
+      <i class="menu-panel-item-icon mdi mdi-school-outline"></i>
+      Alumni
+</a>  </li>
+
+        <li class="menu-panel-item">
+    <a class="menu-link " href="https://kitt.lewagon.com/knowledge/tutorials">
+      <i class="menu-panel-item-icon mdi mdi-book-open-outline"></i>
+      Library
+</a>  </li>
+
+  </ul>
+</div>
+
+
+    <!-- Admin links -->
+    
+  </div>
+</div>
+
+        <ul class="navbar-links d-none d-xl-flex align-items-center">
+      <li class="navbar-item">
+        <a class="navbar-link" href="https://kitt.lewagon.com/camps/727">
+          Dashboard
+</a>      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="https://kitt.lewagon.com/camps/727/challenges">
+          Challenges
+</a>      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="https://kitt.lewagon.com/camps/727/lectures">
+          Lectures
+</a>      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="https://kitt.lewagon.com/camps/727/flashcards">
+          Flashcards
+</a>      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="https://kitt.lewagon.com/camps/727/products">
+          Products
+</a>      </li>
+      <li class="navbar-item">
+        <a class="navbar-link active" href="https://kitt.lewagon.com/camps/727/classmates">
+          Classmates
+</a>      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="https://kitt.lewagon.com/camps/727/zoom">
+          Zoom Campus
+</a>      </li>
+  </ul>
+
+    </div>
+    <div class="navbar-collection d-flex flex-row-reverse align-items-center">
+      <button class="navbar-user-trigger" data-action="navbar-menu#toggleUserMenu navbar-trigger#closeMenuTrigger">
+  <img alt="David Mambou Fotie" class="navbar-avatar" src="classmates_files/ritgve9b33tyb9ms7l8j.jpg">
+</button>
+
+<!-- Menu - User menu -->
+<div class="menu menu-user d-none" data-target="navbar-menu.userMenu">
+  <div class="menu-panel visible">
+    <div class="d-flex justify-content-between">
+      <span class="menu-panel-name">David Mambou Fotie</span>
+      <div data-action="click-&gt;navbar-menu#toggleUserMenu" class="menu-panel-close d-none d-sm-block">
+        <i class="mdi mdi-close"></i>
+      </div>
+    </div>
+    <ul class="menu-panel-items menu-panel-item-user">
+      <li class="menu-panel-item">
+        <a class="menu-link" href="https://kitt.lewagon.com/alumni/david-mambou">
+          <i class="mdi mdi-account-outline"></i> Profile
+</a>      </li>
+    </ul>
+  </div>
+  <div class="menu-panel visible">
+    <span class="menu-panel-name">Tools</span>
+    <ul class="menu-panel-items menu-panel-item-user">
+      <li class="menu-panel-item">
+        <a target="_blank" class="menu-link" href="https://uikit.lewagon.com/">
+          <i class="mdi mdi-palette-outline"></i> UI kit
+</a>      </li>
+       <li class="menu-panel-item">
+        <a class="menu-link" href="https://kitt.lewagon.com/db">
+          <i class="mdi mdi-database"></i> Schema editor
+</a>      </li>
+
+        <li class="menu-panel-item">
+          <a class="menu-link" target="_blank" href="https://kitt.lewagon.com/redeem_github_student_developer_pack">
+            <i class="mdi mdi-github"></i> Student Developer Pack
+</a>        </li>
+
+    </ul>
+  </div>
+  <div class="menu-panel visible">
+    <ul class="menu-panel-items menu-panel-item-user">
+
+
+      <li class="menu-panel-item">
+        <a target="blank" class="menu-link" href="https://kitt.lewagon.com/terms_of_use">
+          <i class="mdi mdi-text-box-outline"></i> Terms of use
+</a>      </li>
+      <li class="menu-panel-item">
+        <a class="menu-link" rel="nofollow" data-method="delete" href="https://kitt.lewagon.com/users/sign_out">
+          <i class="mdi mdi-logout-variant"></i> Sign out
+</a>      </li>
+    </ul>
+  </div>
+</div>
+
+      
+
+
+    </div>
+</nav>
+
+      <div class="flashes-container">
+</div>
+
+      <div data-navbar-menu-target="content" data-action="click-&gt;navbar-menu#closeMenu">
+        
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+  <ul class="list-inline nav-underline nav-underline-left nav-underline-spaced">
+    <li>
+      <a class="tab-underline active-blue" href="https://kitt.lewagon.com/camps/727/classmates">
+        <i class="mdi mdi-account-multiple"></i> <span class="d-none d-md-inline">Classmates</span>
+</a>    </li>
+
+      <li>
+        <a class="tab-underline " href="https://kitt.lewagon.com/camps/727/classmates_game">
+          <i class="mdi mdi-gamepad-variant"></i> <span class="d-none d-md-inline">Guess who?</span>
+</a>      </li>
+  </ul>
+
+  <div class="d-none d-md-flex btn-position-right">
+    <a class="btn btn-default ml-2" href="https://kitt.lewagon.com/camps/727/classmates.pdf">
+      <i class="mdi mdi-printer"></i> Mug shots
+</a>  </div>
+</div>
+
+  </div>
+  <div class="row">
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/Agroang">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/79890025.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Matias Acuna</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Born and 
+raised in Chile. Currently living in Japan (close to 10 years by now!). 
+Mostly retail/sales experience, from Japanese Green Tea to High Jewelry.
+ Love games, and plants. Currently raising hot peppers.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/alvara">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/13145053.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Jesse Alvarado</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Previously I
+ was doing IT and providing technical  support for laser systems in a 
+small company. I recently resigned to move to center Tokyo and pursue a 
+future doing software development. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/caiosantosss">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/87355777.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Caio Alves Dos Santos</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Hey, Caio 
+here, (Kyle in English), I'm from Brazil and I've lived in Australia for
+ almost 4 years. =) My hobbies are soccer, snowboard, and surfing. My 
+favorite food is lobster with good cheese. I also love my mom's lasagna.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/VivianBao">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/78392794.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Wei An Bow</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Grew up in 
+TW and now live in JP : ) I just graduated from Waseda and now I'm 
+exploring the realm of programming and trying my best to make my way to 
+become a web developer! Started going bouldering a few years back and 
+now it's one of my passion : ) </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/Netsujr">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/87453991.png" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Renato Delboni</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Football 
+fanatic, currently a scout/data analyst for the J-league, looking to 
+learn new things and get into web development and implement it into my 
+work. Renato</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/jossdixon">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/kngxb2li1xnq82xgcxpn.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Joss Dixon</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Following 
+work in media and english teaching, I've come to Le Wagon because I want
+ to make a new career and learn a skill for life. I plan on returning to
+ the UK to find my first role in web development. I like tennis, 
+running, and chess!</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/ERy03">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/76512208.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Ryota Enoki</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">	I’m Ryota 
+from Japan! I was born in El Salvador and grew up in Central America 
+(Guatemala, Honduras, and Nicaragua) for 18 years. During my university 
+years, I worked as a volunteer interpreter (Spanish, English, Japanese) 
+for Peace Boat’s 98th voyage. After graduating from college, I started 
+working in a temp agency that specializes in IT infrastructures and 
+English. And, I was dispatched to a company which specializes in mobile 
+network. I worked as a function tester, mainly testing softwares and 
+analyzing logs to make sure all softwares were working properly. 
+<br>	I decided to join Le Wagon because I believe Le Wagon will help me 
+and guide me through my coding journey. I expect to learn more about 
+programming and acquire skills that would allow me to build programs 
+from scratch. After Le Wagon I would like to work as a full stack 
+engineer. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/KarenJoyFujibayashi">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/pfdocymmmtbxdqtkfois.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Karen Joy Fujibayashi</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Hi, my name
+ is Karen.  Originally from the Philippines but living here in Japan for
+ almost 4 years. I used to work at Mtrend Japan as a sales 
+representative and doing my part-time job as a remittance clerk in a 
+Philippine bank here in Japan for almost 4 years.I also work for Olympic
+ &amp; Paralympic for 2 months as an IT engineer which is literally far 
+from coding.
+<br>I am really bored during pandemic last year so I enrolled my self in
+ an online university and took up BSIT and I found out that coding is 
+very interesting but since its an online platform class, I wasn’t be 
+able to interact with my teacher so I search fo a bootcamp in english 
+here in Japan and I found Le wagon. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/toshiroto">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/72361463.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Carlos Hernandez Topete</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">I founded a
+ non-profit organization that works at the intersection of responsible 
+tourism, microfinance, and education. In addition, I am learning coding 
+to develop tools to contribute to a more sustainable world through 
+technology. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/HirofumiJinno">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/88866036.png" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Hirofumi Jinno</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">I am an 
+English-into-Japanese translator learning new languages; this time, not 
+natural ones. After four years working for an international organization
+ in Washington DC, United States, I'm back in Tokyo, Japan looking 
+forward to a new professional adventure with Le Wagon's Web Developer 
+Bootcamp as my first step. My other professional background is sales and
+ marketing of Japanese language testing and interpreting in wireless and
+ environmental services. </p>
+
+<p class="student-bio-wrapper d-none d-md-block">Although I'm originally
+ from Ehime in western island Shikoku, I consider myself Tokyoite after 
+spending more than ten years in the city. I also lived in Paris, France,
+ as well as Monterey, California, and Overland Park, Kansas, in the 
+United States. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/khatakslied">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/36095929.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Ryan Johnson</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Furniture-maker
+ (on an indefinite break)/ plantsman/ master ranter. Eager to start a 
+career in software development in Japan. Originally from London, UK. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/mickubota">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/gtfozgcbxwkhx4fhaug0.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Michael Kubota</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Patent 
+translator/checker in the Tokyo area thinking about doing some new in 
+life and taking up Web Development at LeWagon. Looking forward to 
+learning here, and also satisfying the minimum character length of 140 
+characters in the bio.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/david-mambou">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/ritgve9b33tyb9ms7l8j.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>David Mambou Fotie</strong>
+                  <a href="https://kitt.lewagon.com/users/david-mambou/edit">
+                    <small>
+                      <i class="fas fa-pencil-alt"></i>edit
+                    </small>
+</a>              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Civil 
+engineer becoming a software engineer. I have been working a few jobs 
+since I graduated, but now I am looking for challenging everyday work 
+that makes a big impact. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/ansanigom">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/88181896.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Anju Mogi</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">I'm 
+Japanese born in the UK, lived in several countries; UK, Holland, 
+Sweden, Germany, Malaysia and even onboard the cruise ship! I'm working 
+in a service industry for my whole life after I graduated from music 
+university. I always wanted to work with computer and wanted to change 
+my carrier. Because of COVID situation, I couldn't work for quite a long
+ time so I thought now is the time to do so.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/MaiMouri">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/77220332.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Mai Mouri</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">I am a 
+japanese from Sapporo. At E-commerce companies I was responsible for 
+doing marketing, planning new products and being engaged in management. 
+Throughout some experiences to work with software engineers to improve 
+the work process, I got interested in their creative and useful jobs.  
+In order to make a change in my career, I ended up deciding to dive into
+ this world.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/michymono77">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/29423554.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Michiharu Ono</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Hello! I am
+ a former Chief Editor of a cryptocurrency/blockchain news 
+website(https://xn--zck9awe6dx83p2uw267du0f.com/). I have also 
+experienced in Financial Service Industry (Customer Support role). I am 
+interested in a booking software where a user can trade a reservation 
+slot. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/Steve-Jobless">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/tsveff9wrxwwb3yzhz3m.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Galym Parpiyev</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Entrepreneurship and academia. Have been interested in coding, and it was time to commit or move on. I chose the first one. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/gperilli">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/44981193.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Gareth Perilli</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Hi, I'm Gareth. </p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/darkemlord">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/82207189.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Emanuel Samir Quistial</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">I was 
+working as a spanish teacher, and i just finished a master in 
+cybersecurity. I'm trying to improve my coding skills and i want to get a
+ job in the future.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/epwortham">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/88814217.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Etienne Wortham</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Hello, I 
+like cheesecake. And I am from California. I have been an english 
+teacher in Tokyo for 7 years now. I plan to hopefully stay in Japan a 
+bit more and looking into web development as something new to try! 
+Background is in video production and video editing. I still like 
+playing around with cameras here and there.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3 classmates-background-gray ">
+        
+          <a href="https://kitt.lewagon.com/alumni/louisyash">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/90910106.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Louis Yasuhiro</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">Hi! I'm from San Francisco, California in the United States and have been in Japan for 8 years. 
+<br>I was in sales my entire career, 3 years in SaaS sales. Trying to 
+gain technical skills to break into Product Management or Tech 
+Consulting.</p>
+          </div>
+      </div>
+      <div class="col-12 d-flex p-3  ">
+        
+          <a href="https://kitt.lewagon.com/alumni/cyahtzee">
+            <img class="img-thumbnail" style="max-width: 90px" src="classmates_files/33479806.jpg" width="90">
+</a>          <div class="clasmates-student-links d-flex flex-column justify-content-between px-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Konstantin Yatsenko</strong>
+              </div>
+              <div>
+              </div>
+            </div>
+            <p class="student-bio-wrapper d-none d-md-block">I worked as
+ a Japanese and English translator in Japan but I always had a passion 
+for programming.  I tried to learn different programming languages on my
+ own but it wasn't very efficient since I tried to learn too many things
+ at the same time without a propper practice or opportunity to work on 
+real projects. Now I'm determined to become a web developer and maybe 
+come up with my own start up in translation or teaching.</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+        
+      </div>
+    </div>
+
+    <meta name="action-cable-url" content="/cable">
+    <script src="classmates_files/application-025ffa5de18cc105a0883e06a901f8bb414fcf68da57cfb1f.js"></script>
+    <script src="classmates_files/application-9b84518f8f1906ce5ea1.js"></script>
+    
+  
+
+</body></html>

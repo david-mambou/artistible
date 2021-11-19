@@ -13,12 +13,25 @@ User.destroy_all
 p 'all service instances destroyed'
 
 p 'generating fake users'
+
+# batch = URI.open('schema.rb')
+# batch_doc = Nokogiri::HTML(batch)
+
+# batch_doc.search('.col-12').each do |student|
+#   User.create(name: student.search('strong').text,
+#               email: 'test@test.com',
+#               summary: 'I am a student who does Murals on the weekends.',
+#               password: 'password',
+#               artist: [true, false].sample,
+#               bio: Faker::Lorem.sentence)
+# end
+
 20.times do
-  name = Faker::Artist.name
+  name = Faker::FunnyName.name
   email = Faker::Internet.email(name: name)
   User.create(name: name,
               email: email,
-              summary: 'I am a student who does Murals on the weekends.',
+              summary: "I am a #{Faker::Job.title} who does Murals on the weekends.",
               password: 'password',
               artist: [true, false].sample,
               bio: Faker::Lorem.sentence)
@@ -29,7 +42,7 @@ User.where(artist: true).each do |user|
   2.times do
     new_service = Service.create(user: user,
                                  price: 100 * rand(20..200),
-                                 title: Faker::Ancient.hero,
+                                 title: Faker::Hobby.activity,
                                  description: Faker::Lorem.sentence,
                                  category: Service::CATEGORIES.sample)
 
@@ -52,7 +65,8 @@ User.where(artist: false).each do |user|
                  end_time: end_time,
                  user: user,
                  service: Service.all.sample,
-                 status: rand(0..3))
+                 status: rand(0..3),
+                 rating: rand(2..5))
 end
 
 p 'finished seeding'
