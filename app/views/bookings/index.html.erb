@@ -53,11 +53,5 @@
           </table>
         </div>
       </div>
-      <div class="col-sm-3"><h5>Reviews from other customers</h5><div class="border p-5 rounded-lg">
-        <% current_user.reviews.each do |review| %>
-          <%= render "reviews", review: review %>
-        <% end %>
-        </div>
-      </div>
     </div>
   <% end %>
