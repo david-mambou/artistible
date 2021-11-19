@@ -1,5 +1,5 @@
 <div class="container d-flex">
-  <div class="row">
+  <div class="row pt-2">
     <div class="col-3">
       <%= render "artist_profile_card"%>
     </div>
@@ -28,11 +28,11 @@
 <% @tags.each do |tag| %>
   <div class="container p-3 mt-2">
     <div class="row">
-      <div class="col-9">
+      <div class="col-9 pt-2 px-0">
         <div>
           <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-danger" id="<%= tag %>"><%= tag.capitalize %></span></h2>
         </div>
-        <div class="booking-card-product w-100">
+        <div class="booking-card-product">
           <%= render 'booking_card'%>
           <% @artist.services.each do |service| %>
             <%= render 'artist_show_card', service: service %>
