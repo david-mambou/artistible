@@ -26,7 +26,7 @@ p 'generating fake users'
 #               bio: Faker::Lorem.sentence)
 # end
 
-20.times do
+2.times do
   name = Faker::FunnyName.name
   email = Faker::Internet.email(name: name)
   user = User.create(name: name,
@@ -67,8 +67,7 @@ User.where(artist: false).each do |user|
                  end_time: end_time,
                  user: user,
                  service: Service.all.sample,
-                 status: rand(0..3),
-                 rating: rand(2..5))
+                 status: rand(0..3))
 end
 
 p 'finished seeding'
