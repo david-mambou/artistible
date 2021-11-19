@@ -32,6 +32,8 @@
         <h2>Latest review</h2>
         <% if current_user.reviews.present? %>
           <%= render "bookings/reviews", review: current_user.reviews.first%>
+        <% else %>
+          <p>No review</p>
         <% end %>
       </header>
     </div>
