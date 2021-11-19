@@ -14,58 +14,59 @@ p 'all service instances destroyed'
 
 p 'generating fake users'
 
-batch = URI.open('schema.rb')
-batch_doc = Nokogiri::HTML(batch)
+# batch = URI.open('schema.rb')
+# batch_doc = Nokogiri::HTML(batch)
 
-batch_doc.search('.col-12').each do |student|
-  User.create(name: student.search('strong').text,
-              email: 'test@test.com',
-              summary: 'I am a student who does Murals on the weekends.',
-              password: 'password',
-              artist: [true, false].sample,
-              bio: Faker::Lorem.sentence)
-end
-
-# 20.times do
-#   name = Faker::Artist.name
-#   email = Faker::Internet.email(name: name)
-#   User.create(name: name,
-#               email: email,
+# batch_doc.search('.col-12').each do |student|
+#   User.create(name: student.search('strong').text,
+#               email: 'test@test.com',
 #               summary: 'I am a student who does Murals on the weekends.',
 #               password: 'password',
 #               artist: [true, false].sample,
 #               bio: Faker::Lorem.sentence)
 # end
 
-# p 'populating artists with fake content'
-# User.where(artist: true).each do |user|
-#   2.times do
-#     new_service = Service.create(user: user,
-#                                  price: 100 * rand(20..200),
-#                                  title: Faker::Ancient.hero,
-#                                  description: Faker::Lorem.sentence,
-#                                  category: Service::CATEGORIES.sample)
+20.times do
+  name = Faker::FunnyName.name
+  email = Faker::Internet.email(name: name)
+  User.create(name: name,
+              email: email,
+              summary: "I am a #{Faker::Job.title} who does Murals on the weekends.",
+              password: 'password',
+              artist: [true, false].sample,
+              bio: Faker::Lorem.sentence)
+end
 
-#     file = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
-#     file2 = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
-#     file3 = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
-#     new_service.photos.attach(io: file, filename: 'temp.png', content_type: 'image/png')
-#     new_service.photos.attach(io: file2, filename: 'temp.png', content_type: 'image/png')
-#     new_service.photos.attach(io: file3, filename: 'temp.png', content_type: 'image/png')
-#     p 'attached 3 photos from cloudinary..'
-#     new_service.save
-#   end
-# end
+p 'populating artists with fake content'
+User.where(artist: true).each do |user|
+  2.times do
+    new_service = Service.create(user: user,
+                                 price: 100 * rand(20..200),
+                                 title: Faker::Hobby.activity,
+                                 description: Faker::Lorem.sentence,
+                                 category: Service::CATEGORIES.sample)
 
-# p 'populating customers with fake details'
-# User.where(artist: false).each do |user|
-#   start_time = rand(10.years).seconds.from_now
-#   end_time = start_time + rand(2..6).hour
-#   Booking.create(start_time: start_time,
-#                  end_time: end_time,
-#                  user: user,
-#                  service: Service.all.sample,
-#                  status: rand(0..3))
-# end
+    file = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
+    file2 = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
+    file3 = URI.open("https://source.unsplash.com/#{rand(300..500)}x#{rand(300..500)}/?#{new_service.category}")
+    new_service.photos.attach(io: file, filename: 'temp.png', content_type: 'image/png')
+    new_service.photos.attach(io: file2, filename: 'temp.png', content_type: 'image/png')
+    new_service.photos.attach(io: file3, filename: 'temp.png', content_type: 'image/png')
+    p 'attached 3 photos from cloudinary..'
+    new_service.save
+  end
+end
 
-# p 'finished seeding'
+p 'populating customers with fake details'
+User.where(artist: false).each do |user|
+  start_time = rand(10.years).seconds.from_now
+  end_time = start_time + rand(2..6).hour
+  Booking.create(start_time: start_time,
+                 end_time: end_time,
+                 user: user,
+                 service: Service.all.sample,
+                 status: rand(0..3),
+                 rating: rand(2..5))
+end
+
+p 'finished seeding'
