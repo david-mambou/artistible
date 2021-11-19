@@ -8,8 +8,8 @@
           <%= f.input :start_time, as: :string, required: true, input_html: {id: "start_time"} %>
           <%= f.input :end_time, as: :string, required: true, input_html: {id: "end_time"} %>
           <div class="row justify-content-between px-3 py-4">
-            <%= f.submit class: "main-button" %>
-            <%= link_to 'Cancel', '', class: "main-button cancel-button", data: { bookingid: booking.id } %>
+            <%= f.submit class: "modern-button" %>
+            <%= link_to 'Cancel', '', class: "modern-button cancel-button", data: { bookingid: booking.id } %>
           </div>
         <% end %>
       <% end %>

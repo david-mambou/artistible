@@ -15,7 +15,7 @@
       <div>
         <% @tags.each do |tag| %>
           <div>
-            <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-danger" id="<%= tag %>"><%= tag.capitalize %></span></h2>
+            <h2 class="d-flex justify-content-center"><span class="badge badge-pill badge-light" style="background-color: #DAA5CF;" id="<%= tag %>"><%= tag.capitalize %></span></h2>
           </div>
           <% @artist.services.where(category: tag).each do |service| %>
             <div class="booking-card-product">
