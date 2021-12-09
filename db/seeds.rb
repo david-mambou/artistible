@@ -29,12 +29,16 @@ p 'generating fake users'
 15.times do
   name = Faker::FunnyName.name
   email = Faker::Internet.email(name: name)
-  user = User.create(name: name,
-              email: email,
-              summary: "I am a #{Faker::Job.title} who does Murals on the weekends.",
-              password: 'password',
-              artist: [true, false].sample,
-              bio: Faker::Lorem.sentence)
+  user = User.create(
+    name: name,
+    email: email,
+    summary: "I am a #{Faker::Job.title} who does Murals on the weekends.",
+    password: 'password',
+    artist: [true, false].sample,
+    bio: Faker::Lorem.paragraph(sentence_count: 2,
+                                supplemental: false,
+                                random_sentences_to_add: 2)
+  )
   file = URI.open("https://source.unsplash.com/200x200/?person")
   user.photo.attach(io: file, filename: 'temp.png', content_type: 'image/png')
 end
@@ -44,7 +48,7 @@ User.where(artist: true).each do |user|
   2.times do
     new_service = Service.create(user: user,
                                  price: 100 * rand(20..200),
-                                 title: Faker::Hobby.activity,
+                                 title: 'Mural paintings',
                                  description: Faker::Lorem.sentence,
                                  category: Service::CATEGORIES.sample)
 

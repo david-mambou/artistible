@@ -1,8 +1,22 @@
+<div class="container">
   <div class="row">
-    <% if review.user.photo.attached? %>
-      <%= cl_image_tag review.user.photo.key, class: "avatar" %>
-    <% else %>
-      <img src="http://placehold.jp/50x50.png", class = "avatar" >
-    <% end %>
-    "<%= review.comment %>"
+    <div class="col-12">
+      <% if review.user.photo.attached? %>
+        <%= cl_image_tag review.user.photo.key, class: "avatar" %>
+      <% else %>
+        <img src="http://placehold.jp/50x50.png", class = "avatar" >
+      <% end %>
+    </div>
+    <div class="col-6">
+      <div class="font-for-stars">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </div>
+    </div>
   </div>
+    <div class="row">"<%= review.comment %>"</div>
+</div>

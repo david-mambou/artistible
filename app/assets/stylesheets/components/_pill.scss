@@ -27,6 +27,13 @@
   }
 }
 
+.review-button {
+  background-color: $success;
+  &:hover {
+    background-color: #22ad6e;
+  }
+}
+
 .inverse-modern-button {
   color: #af1e8f !important;
   border: 1px solid #af1e8f;

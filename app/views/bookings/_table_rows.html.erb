@@ -1,27 +1,27 @@
 <%# SERVICE IMAGE %>
-<td>       
-  <% if booking.service.photos.attached? %>   
+<td>
+  <% if booking.service.photos.attached? %>
     <%= cl_image_tag(booking.service.photos.first.key, height: 100, width: 100, crop: 'fill', class: 'artist-card-images') %>
   <% end %>
 </td>
 <td> <%=booking.service.title %> </td>
-<% if booking.user.photo.attached? %>
-  <td> <%= cl_image_tag booking.user.photo.key, class: "avatar" %>
+<% if booking.service.user.photo.attached? %>
+  <td> <%= cl_image_tag booking.service.user.photo.key, class: "avatar text-center" %>
 <% else %>
  <td><img src="http://placehold.jp/50x50.png", class="avatar">
 <% end %>
 <br>
-<%=booking.user.name.capitalize %></td>
+<%=booking.service.user.name.titleize %></td>
 <td><%= booking.start_time.to_formatted_s(:short) %> </td>
 <td><%= booking.end_time.to_formatted_s(:short) %> </td>
 <td>¥<%= booking.service.price %></td>
 <% case booking.status %>
   <% when "pending" %>
-    <td>🟡<%= booking.status.capitalize %></td>
+    <td>🟡 <%= booking.status.capitalize %></td>
   <% when 'accepted' %>
-    <td>🟢<%= booking.status.capitalize %></td>
+    <td>🟢 <%= booking.status.capitalize %></td>
   <% when 'declined' %>
-    <td>🔴<%= booking.status.capitalize %></td>
+    <td>🔴 <%= booking.status.capitalize %></td>
 <% end %>
 
 
@@ -45,9 +45,9 @@
   <td>
     <%# if DateTime.now > booking.end_time commented for demo purposes %>
       <% if booking.review %>
-        <%= link_to 'Edit Review', edit_booking_review_path(booking, booking.review), class: "btn btn-warning" %>
+        <%= link_to 'Edit Review', edit_booking_review_path(booking, booking.review), class: "btn modern-button" %>
       <% else %>
-        <%= link_to 'Review Service', new_booking_review_path(booking), class: "btn btn-success"  %>
+        <%= link_to 'Review Service', new_booking_review_path(booking), class: "btn modern-button review-button"  %>
       <% end %>
     <%# end %>
   </td>
