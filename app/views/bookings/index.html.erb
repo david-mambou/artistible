@@ -23,11 +23,11 @@
           </table>
         </div>
       </div>
-    
+
     </div>
     <br>
   <% end %>
-  
+
   <% if !current_user.artist || current_user.bookings.present? %>
     <div class="row">
       <div class="col-sm-12">
@@ -46,7 +46,7 @@
               <th>Leave a review</th>
             </tr>
             <% current_user.bookings.order("start_time ASC").each do |booking| %>
-            <tr>
+              <tr>
               <%= render "table_rows", :booking => booking %>
             <% end %>
             </tr>
