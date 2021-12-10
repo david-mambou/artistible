@@ -31,7 +31,7 @@
       <header class="shadow p-3 mt-4 bg-white rounded">
         <h2>Latest review</h2>
         <% if current_user.reviews.present? %>
-          <%= render "bookings/reviews", review: current_user.reviews.first%>
+          <%= render "bookings/reviews", review: current_user.reviews.order(:created_at).first%>
         <% else %>
           <p>No review</p>
         <% end %>
